@@ -1,0 +1,5 @@
+name: Design of experiments config
+system_summary: Run parameter sweep
+driver_config: configs/year_2010/driver_config.yaml
+technology_config: configs/year_2010/tech_config.yaml
+plant_config: configs/year_2010/plant_config.yaml

@@ -1,0 +1,150 @@
+name: technology_config
+description: This plant produces electricity with wind, solar, natural gas and battery
+  to meet a fixed electrical load demand, coordinated by the system-level controller
+  (SLC).
+technologies:
+  wind:
+    performance_model:
+      model: PYSAMWindPlantPerformanceModel
+    cost_model:
+      model: ATBWindPlantCostModel
+    model_inputs:
+      performance_parameters:
+        num_turbines: 294
+        turbine_rating_kw: 6000
+        hub_height: 115
+        rotor_diameter: 170
+        create_model_from: default
+        config_name: WindPowerSingleOwner
+        pysam_options:
+          Farm:
+            wind_farm_wake_model: 0
+          Losses:
+            ops_strategies_loss: 0.0
+        layout:
+          layout_mode: basicgrid
+          layout_options:
+            row_D_spacing: 7.0
+            turbine_D_spacing: 7.0
+            rotation_angle_deg: 0.0
+            row_phase_offset: 0.0
+            layout_shape: square
+      cost_parameters:
+        capex_per_kW: 1537.0
+        opex_per_kW_per_year: 31.0
+        cost_year: 2022
+  solar:
+    performance_model:
+      model: PYSAMSolarPlantPerformanceModel
+    cost_model:
+      model: ATBUtilityPVCostModel
+    model_inputs:
+      performance_parameters:
+        pv_capacity_kWdc: 1944370.15213615
+        dc_ac_ratio: 1.34
+        create_model_from: new
+        tilt_angle_func: lat-func
+        pysam_options:
+          SystemDesign:
+            gcr: 0.3
+            array_type: 2
+            bifaciality: 0.65
+            inv_eff: 96.0
+            losses: 14.6
+            module_type: 1
+            azimuth: 180
+            rotlim: 45
+          SolarResource:
+            albedo_default: 0.2
+      cost_parameters:
+        capex_per_kWac: 1432.0
+        opex_per_kWac_per_year: 20.0
+        cost_year: 2022
+  battery:
+    performance_model:
+      model: StoragePerformanceModel
+    cost_model:
+      model: ATBBatteryCostModel
+    control_strategy:
+      model: SimpleStorageOpenLoopController
+    model_inputs:
+      shared_parameters:
+        commodity: electricity
+        commodity_rate_units: kW
+        max_charge_rate: 1000000.0
+        max_capacity: 9679084.421410603
+        demand_profile: 1000000.0
+      performance_parameters:
+        max_soc_fraction: 0.9
+        min_soc_fraction: 0.1
+        init_soc_fraction: 0.7
+        round_trip_efficiency: 0.9
+      control_parameters:
+        set_demand_as_avg_commodity_in: false
+      cost_parameters:
+        cost_year: 2022
+        energy_capex: 297.0
+        power_capex: 312.0
+        opex_fraction: 0.025
+  ng_feedstock:
+    performance_model:
+      model: FeedstockPerformanceModel
+    cost_model:
+      model: FeedstockCostModel
+    model_inputs:
+      shared_parameters:
+        commodity: natural_gas
+        commodity_rate_units: MMBtu/h
+      performance_parameters:
+        rated_capacity: 7500.0
+      cost_parameters:
+        cost_year: 2026
+        price: 6.09
+        annual_cost: 0.0
+        start_up_cost: 0.0
+  natural_gas_plant:
+    performance_model:
+      model: NaturalGasPerformanceModel
+    cost_model:
+      model: NaturalGasCostModel
+    model_inputs:
+      shared_parameters:
+        heat_rate_mmbtu_per_mwh: 6.3
+        system_capacity_mw: 500.0
+      cost_parameters:
+        capex_per_kw: 2500.0
+        cost_year: 2026
+        fixed_opex_per_kw_per_year: 33.1
+        variable_opex_per_mwh: 2.1
+  electrical_load_demand:
+    performance_model:
+      model: GenericDemandComponent
+    model_inputs:
+      performance_parameters:
+        commodity: electricity
+        commodity_rate_units: kW
+        demand_profile: 1000000
+  renew_combiner:
+    performance_model:
+      model: GenericCombinerPerformanceModel
+    model_inputs:
+      performance_parameters:
+        commodity: electricity
+        commodity_rate_units: kW
+        in_streams: 2
+  supply_combiner:
+    performance_model:
+      model: GenericCombinerPerformanceModel
+    model_inputs:
+      performance_parameters:
+        commodity: electricity
+        commodity_rate_units: kW
+        in_streams: 2
+  combiner:
+    performance_model:
+      model: GenericCombinerPerformanceModel
+    model_inputs:
+      performance_parameters:
+        commodity: electricity
+        commodity_rate_units: kW
+        in_streams: 2

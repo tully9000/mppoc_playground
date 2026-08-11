@@ -1,0 +1,34 @@
+name: driver_config
+description: Driver config for MPPOC storage DOE sweep
+general:
+  folder_output: /Users/ztully/Documents/software/MPPOC/mppoc-datacenter-h2i/control_case/sweep_year_battery/outputs/DOE_2010
+  create_om_reports: true
+driver:
+  parameter_sweep:
+    flag: true
+    debug_print: true
+    generator: fullfact
+    levels: 3
+    run_parallel: true
+design_variables:
+  battery:
+    storage_capacity:
+      flag: true
+      lower: 11000000.0
+      upper: 16000000.0
+      units: kW*h
+  natural_gas_plant:
+    system_capacity:
+      flag: true
+      lower: 300
+      upper: 700
+      units: MW
+objective:
+  name: plant.finance_subgroup_electricity.electricity_finance_profast_lco.LCOE
+recorder:
+  flag: true
+  file: cases.sql
+  overwrite_recorder: true
+  includes:
+  - '*'
+  record_desvars: true

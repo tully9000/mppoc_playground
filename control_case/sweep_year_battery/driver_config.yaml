@@ -1,0 +1,82 @@
+# # # FOR OPTIMIZATION 
+# name: driver_config
+# description: Driver config for MPPOC storage DOE sweep
+# general:
+#   folder_output: OPT_out
+#   create_om_reports: true
+# driver:
+#   optimization:
+#     flag: True
+#     tol: 0.1
+#     max_iter: 100
+#     solver: COBYLA
+#     rhobeg: 500.
+#     debug_print: True
+# design_variables:
+#   battery:
+#     storage_capacity:
+#       flag: true
+#       lower: 9000000.0
+#       upper: 15000000.0
+#       units: kW*h
+# constraints: 
+#   electrical_load_demand:
+#     unmet_electricity_demand_out:
+#       flag: true
+#       upper: 1000
+#       # lower: 0
+#       units: kW
+
+
+# objective:
+#   name: plant.finance_subgroup_electricity.electricity_finance_profast_lco.LCOE
+# recorder:
+#   flag: true
+#   file: cases.sql
+#   overwrite_recorder: true
+#   includes: ['*']
+#   excludes: ['*_resource*']
+
+# FOR DESIGN OF EXPERIMENTS PARAMETER SWEEP
+name: driver_config
+description: Driver config for MPPOC storage DOE sweep
+general:
+  folder_output: DOE_out
+  create_om_reports: true
+driver:
+  parameter_sweep:
+    flag: true
+    debug_print: true
+    generator: fullfact
+    levels: 3
+    # levels: 11
+    run_parallel: true
+  # parameter_sweep:
+  #   flag: true
+  #   debug_print: true
+  #   generator: csvgen
+  #   filename: doe_cases.csv
+  #   run_parallel: false
+design_variables:
+  battery:
+    storage_capacity:
+      flag: true
+      lower: 11000000.0
+      upper: 16000000.0
+      units: kW*h
+  natural_gas_plant:
+    system_capacity:
+      flag: true
+      lower: 300
+      upper: 700
+      units: MW
+      
+objective:
+  name: plant.finance_subgroup_electricity.electricity_finance_profast_lco.LCOE
+recorder:
+  flag: true
+  file: cases.sql
+  overwrite_recorder: true
+  includes: ['*']
+  # excludes: ['*_resource*']
+  record_desvars: True

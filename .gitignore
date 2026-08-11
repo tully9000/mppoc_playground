@@ -219,9 +219,16 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 
-plots/*
+
+plots/
 .vscode
 *_out/
+.DS_Store
+*.sql
+*/ouputs/*
+control_case/sweep_year_battery/outputs/
+
+
 
 
 
