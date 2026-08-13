@@ -1,0 +1,5 @@
+name: H2Integrate_config
+system_summary: This example uses wind, solar and a natural gas power plant to meet a fixed electrical load demand.
+driver_config: mppoc_playground/SLC_battery_SOC/driver_config.yaml
+technology_config: mppoc_playground/SLC_battery_SOC/tech_config.yaml
+plant_config: mppoc_playground/SLC_battery_SOC/plant_config.yaml

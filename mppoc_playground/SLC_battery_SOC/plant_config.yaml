@@ -70,10 +70,8 @@ plant:
 #   solar, wind       -> flexible     (commanded at rated availability)
 #   natural_gas_plant -> dispatchable (UC decides hourly commitment/output)
 #   battery           -> storage      (UC decides hourly charge/discharge)
-
 system_level_control:
-  # control_strategy: UCControl
-  # control_strategy: DispatchableFirstControl
+  control_strategy: UCControl
   control_parameters:
     # UC gas-unit parameters (single aggregate NGCC, n_units = 1). Values are
     # read here so the UC MILP stays consistent with the tech_config plant.
@@ -89,8 +87,8 @@ system_level_control:
     # implement only the first `uc_control_step` hours, then roll forward.
     # uc_control_step: 1 => a true hourly controller, so the end-of-window
     # terminal SOC handling stays ~24 h from every applied decision.
-    uc_horizon: 24
-    uc_control_step: 1
+    uc_horizon: 48
+    uc_control_step: 24
     # Battery end-of-day SOC handling in the 24 h UC window:
     #   fixed_<NN>  -> force ~NN% at end of each day (±5% band, prevents
     #                  ratcheting). fixed_50 = 50%, fixed_80 = 80%, etc.
