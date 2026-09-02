@@ -60,10 +60,45 @@ technologies:
         capex_per_kWac: 1432.00
         opex_per_kWac_per_year: 20.00
         cost_year: 2022
+  # battery:
+  #   performance_model:
+  #     model: PySAMBatteryPerformanceModel
+  #   cost_model:
+  #     model: ATBBatteryCostModel
+  #   # Under SLC, the battery-level controller is a thin passthrough; SLC
+  #   # decides discharge/charge set-points at the system level. Using
+  #   # SimpleStorageOpenLoopController (mirrors examples/35 battery_with_controller).
+  #   control_strategy:
+  #     # model: HeuristicLoadFollowingStorageController
+  #     model: SimpleStorageOpenLoopController
+  #   model_inputs:
+  #     shared_parameters:
+  #       commodity: electricity
+  #       commodity_rate_units: kW
+  #       max_charge_rate: 1000000.0  # kW, 1000 MW
+  #       max_capacity: 9679084.421410604  # kWh, ~9.7 GWh
+  #       max_soc_fraction: 0.9
+  #       min_soc_fraction: 0.1
+  #       init_soc_fraction: 0.7
+  #     performance_parameters:
+  #       chemistry: LFPGraphite
+  #       demand_profile: 1000000.0  # kW; unused by SimpleStorageOpenLoopController when
+  #                                   # set_demand_as_avg_commodity_in=false + SLC drives set_point
+  #       # round_trip_efficiency: 0.9
+  #     control_parameters:
+  #       # set_demand_as_avg_commodity_in: false
+  #       system_commodity_interface_limit: 1e12
+  #       n_control_window_hours: 24
+  #     cost_parameters:
+  #       # 2024 NLR ATB, Utility-Scale Battery Storage, moderate, 2026 numbers
+  #       cost_year: 2022
+  #       energy_capex: 297.00
+  #       power_capex: 312.00
+  #       opex_fraction: 0.025
   battery:
     performance_model:
-      # model: StoragePerformanceModel
-      model: PySAMBatteryPerformanceModel
+      model: StoragePerformanceModel
+      # model: PySAMBatteryPerformanceModel
     cost_model:
       model: ATBBatteryCostModel
     # Under SLC, the battery-level controller is a thin passthrough; SLC
@@ -83,12 +118,7 @@ technologies:
         max_soc_fraction: 0.9
         min_soc_fraction: 0.1
         init_soc_fraction: 0.7
-        chemistry: LFPGraphite
-      # performance_parameters:
-      #   max_soc_fraction: 0.9
-      #   min_soc_fraction: 0.1
-      #   init_soc_fraction: 0.7
-      #   round_trip_efficiency: 0.9
+        round_trip_efficiency: 0.9
       control_parameters:
         set_demand_as_avg_commodity_in: false
       cost_parameters:

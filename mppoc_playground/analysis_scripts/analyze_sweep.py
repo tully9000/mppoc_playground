@@ -115,6 +115,8 @@ plot_surface(
     "LCOE",
 )
 
+# Curtailment too
+
 
 ax[0, 0].set_xticks(np.unique(param_vals[0, :]))
 ax[0, 0].set_yticks(np.unique(param_vals[1, :]))

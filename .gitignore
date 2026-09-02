@@ -232,5 +232,6 @@ control_case/sweep_year_battery/outputs/
 
 run_data/
 
-
+*.tex
+*.tikz
 

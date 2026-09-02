@@ -4,26 +4,6 @@ import numpy as np
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 class System(om.ExplicitComponent):
 
     def setup(self):
