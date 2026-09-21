@@ -1,0 +1,486 @@
+
+198 explicit inputs:
+                                                          ╷                  ╷             ╷       ╷                                                                           
+ Variable                                                 │             Mean │ Units       │ Shape │ Promoted name                                                             
+╶─────────────────────────────────────────────────────────┼──────────────────┼─────────────┼───────┼──────────────────────────────────────────────────────────────────────────╴
+ plant                                                    │                  │             │       │                                                                           
+   battery                                                │                  │             │       │                                                                           
+     ATBBatteryCostModel                                  │                  │             │       │                                                                           
+       max_charge_rate                                    │       1,000,000. │ kW          │ 1     │ battery.max_charge_rate                                                   
+     StoragePerformanceModel                              │                  │             │       │                                                                           
+       max_charge_rate                                    │       1,000,000. │ kW          │ 1     │ battery.max_charge_rate                                                   
+       storage_capacity                                   │     9,679,084.42 │ kW*h        │ 1     │ battery.storage_capacity                                                  
+       storage_capacity                                   │     9,679,084.42 │ kW*h        │ 1     │ battery.storage_capacity                                                  
+       skip_compute                                       │            False │ n/a         │ n/a   │ battery.skip_compute                                                      
+     SimpleStorageOpenLoopController                      │                  │             │       │                                                                           
+       timestep_index                                     │               0. │ n/a         │ 1     │ battery.timestep_index                                                    
+       timestep_index                                     │               0. │ n/a         │ 1     │ battery.timestep_index                                                    
+       electricity_set_point                              │        999,274.6 │ kW          │ 8760  │ battery.electricity_set_point                                             
+       electricity_in                                     │     1,018,574.31 │ kW          │ 8760  │ battery.electricity_in                                                    
+       electricity_in                                     │     1,018,574.31 │ kW          │ 8760  │ battery.electricity_in                                                    
+       electricity_command_value                          │     -19,299.7136 │ kW          │ 8760  │ battery.electricity_command_value                                         
+   combiner                                               │                  │             │       │                                                                           
+     GenericCombinerPerformanceModel                      │                  │             │       │                                                                           
+       electricity_in1                                    │     1,018,574.31 │ kW          │ 8760  │ combiner.electricity_in1                                                  
+       rated_electricity_production1                      │      3,715,022.5 │ kW          │ 1     │ combiner.rated_electricity_production1                                    
+       electricity_capacity_factor1                       │           0.3537 │ unitless    │ 30    │ combiner.electricity_capacity_factor1                                     
+       electricity_in2                                    │     -18,685.5808 │ kW          │ 8760  │ combiner.electricity_in2                                                  
+       rated_electricity_production2                      │       1,000,000. │ kW          │ 1     │ combiner.rated_electricity_production2                                    
+       electricity_capacity_factor2                       │          -0.0187 │ unitless    │ 30    │ combiner.electricity_capacity_factor2                                     
+   electrical_load_demand                                 │                  │             │       │                                                                           
+     GenericDemandComponent                               │                  │             │       │                                                                           
+       timestep_index                                     │               0. │ n/a         │ 1     │ electrical_load_demand.timestep_index                                     
+       electricity_demand                                 │       1,000,000. │ kW          │ 8760  │ electrical_load_demand.electricity_demand                                 
+       electricity_in                                     │       999,888.73 │ kW          │ 8760  │ electrical_load_demand.electricity_in                                     
+   electricity_battery_to_combiner_cable                  │                  │             │       │                                                                           
+     electricity_in                                       │     -18,685.5808 │ kW          │ 8760  │ electricity_battery_to_combiner_cable.electricity_in                      
+   electricity_combiner_to_electrical_load_demand_cable   │                  │             │       │                                                                           
+     electricity_in                                       │       999,888.73 │ kW          │ 8760  │ electricity_combiner_to_electrical_load_demand_cable.electricity_in       
+   electricity_natural_gas_plant_to_supply_combiner_cable │                  │             │       │                                                                           
+     electricity_in                                       │       72,487.892 │ kW          │ 8760  │ electricity_natural_gas_plant_to_supply_combiner_cable.electricity_in     
+   electricity_renew_combiner_to_supply_combiner_cable    │                  │             │       │                                                                           
+     electricity_in                                       │       946,086.42 │ kW          │ 8760  │ electricity_renew_combiner_to_supply_combiner_cable.electricity_in        
+   electricity_solar_to_renew_combiner_cable              │                  │             │       │                                                                           
+     electricity_in                                       │       356,127.65 │ kW          │ 8760  │ electricity_solar_to_renew_combiner_cable.electricity_in                  
+   electricity_supply_combiner_to_battery_cable           │                  │             │       │                                                                           
+     electricity_in                                       │     1,018,574.31 │ kW          │ 8760  │ electricity_supply_combiner_to_battery_cable.electricity_in               
+   electricity_supply_combiner_to_combiner_cable          │                  │             │       │                                                                           
+     electricity_in                                       │     1,018,574.31 │ kW          │ 8760  │ electricity_supply_combiner_to_combiner_cable.electricity_in              
+   electricity_wind_to_renew_combiner_cable               │                  │             │       │                                                                           
+     electricity_in                                       │       589,958.77 │ kW          │ 8760  │ electricity_wind_to_renew_combiner_cable.electricity_in                   
+   finance_subgroup_electricity                           │                  │             │       │                                                                           
+     adjusted_capex_opex_comp                             │                  │             │       │                                                                           
+       capex_solar                                        │ 2,077,864,222.28 │ USD         │ 1     │ finance_subgroup_electricity.capex_solar                                  
+       opex_solar                                         │    29,020,450.03 │ USD/year    │ 1     │ finance_subgroup_electricity.opex_solar                                   
+       varopex_solar                                      │               0. │ USD/year    │ 30    │ finance_subgroup_electricity.varopex_solar                                
+       capex_wind                                         │   2,711,268,000. │ USD         │ 1     │ finance_subgroup_electricity.capex_wind                                   
+       opex_wind                                          │      54,684,000. │ USD/year    │ 1     │ finance_subgroup_electricity.opex_wind                                    
+       varopex_wind                                       │               0. │ USD/year    │ 30    │ finance_subgroup_electricity.varopex_wind                                 
+       capex_battery                                      │ 3,186,688,073.16 │ USD         │ 1     │ finance_subgroup_electricity.capex_battery                                
+       opex_battery                                       │    79,667,201.83 │ USD/year    │ 1     │ finance_subgroup_electricity.opex_battery                                 
+       varopex_battery                                    │               0. │ USD/year    │ 30    │ finance_subgroup_electricity.varopex_battery                              
+       capex_natural_gas_plant                            │   1,250,000,000. │ USD         │ 1     │ finance_subgroup_electricity.capex_natural_gas_plant                      
+       opex_natural_gas_plant                             │    17,883,487.26 │ USD/year    │ 1     │ finance_subgroup_electricity.opex_natural_gas_plant                       
+       varopex_natural_gas_plant                          │               0. │ USD/year    │ 30    │ finance_subgroup_electricity.varopex_natural_gas_plant                    
+       capex_ng_feedstock                                 │               0. │ USD         │ 1     │ finance_subgroup_electricity.capex_ng_feedstock                           
+       opex_ng_feedstock                                  │               0. │ USD/year    │ 1     │ finance_subgroup_electricity.opex_ng_feedstock                            
+       varopex_ng_feedstock                               │    24,362,812.27 │ USD/year    │ 30    │ finance_subgroup_electricity.varopex_ng_feedstock                         
+       cost_year_solar                                    │           2,022. │ n/a         │ n/a   │ finance_subgroup_electricity.cost_year_solar                              
+       cost_year_wind                                     │           2,022. │ n/a         │ n/a   │ finance_subgroup_electricity.cost_year_wind                               
+       cost_year_battery                                  │           2,022. │ n/a         │ n/a   │ finance_subgroup_electricity.cost_year_battery                            
+       cost_year_natural_gas_plant                        │           2,026. │ n/a         │ n/a   │ finance_subgroup_electricity.cost_year_natural_gas_plant                  
+       cost_year_ng_feedstock                             │           2,026. │ n/a         │ n/a   │ finance_subgroup_electricity.cost_year_ng_feedstock                       
+     electricity_finance_profast_lco                      │                  │             │       │                                                                           
+       rated_electricity_production                       │      4,715,022.5 │ kW          │ 1     │ finance_subgroup_electricity.rated_electricity_production                 
+       capacity_factor                                    │           0.2747 │ unitless    │ 30    │ finance_subgroup_electricity.capacity_factor                              
+       capex_adjusted_solar                               │ 2,077,864,222.28 │ USD         │ 1     │ finance_subgroup_electricity.capex_adjusted_solar                         
+       opex_adjusted_solar                                │    29,020,450.03 │ USD/year    │ 1     │ finance_subgroup_electricity.opex_adjusted_solar                          
+       varopex_adjusted_solar                             │               0. │ USD/year    │ 30    │ finance_subgroup_electricity.varopex_adjusted_solar                       
+       replacement_schedule_solar                         │               0. │ unitless    │ 30    │ finance_subgroup_electricity.replacement_schedule_solar                   
+       capex_adjusted_wind                                │   2,711,268,000. │ USD         │ 1     │ finance_subgroup_electricity.capex_adjusted_wind                          
+       opex_adjusted_wind                                 │      54,684,000. │ USD/year    │ 1     │ finance_subgroup_electricity.opex_adjusted_wind                           
+       varopex_adjusted_wind                              │               0. │ USD/year    │ 30    │ finance_subgroup_electricity.varopex_adjusted_wind                        
+       replacement_schedule_wind                          │               0. │ unitless    │ 30    │ finance_subgroup_electricity.replacement_schedule_wind                    
+       capex_adjusted_battery                             │ 3,186,688,073.16 │ USD         │ 1     │ finance_subgroup_electricity.capex_adjusted_battery                       
+       opex_adjusted_battery                              │    79,667,201.83 │ USD/year    │ 1     │ finance_subgroup_electricity.opex_adjusted_battery                        
+       varopex_adjusted_battery                           │               0. │ USD/year    │ 30    │ finance_subgroup_electricity.varopex_adjusted_battery                     
+       replacement_schedule_battery                       │               0. │ unitless    │ 30    │ finance_subgroup_electricity.replacement_schedule_battery                 
+       capex_adjusted_natural_gas_plant                   │   1,132,438,306. │ USD         │ 1     │ finance_subgroup_electricity.capex_adjusted_natural_gas_plant             
+       opex_adjusted_natural_gas_plant                    │    16,201,556.82 │ USD/year    │ 1     │ finance_subgroup_electricity.opex_adjusted_natural_gas_plant              
+       varopex_adjusted_natural_gas_plant                 │               0. │ USD/year    │ 30    │ finance_subgroup_electricity.varopex_adjusted_natural_gas_plant           
+       replacement_schedule_natural_gas_plant             │               0. │ unitless    │ 30    │ finance_subgroup_electricity.replacement_schedule_natural_gas_plant       
+       capex_adjusted_ng_feedstock                        │               0. │ USD         │ 1     │ finance_subgroup_electricity.capex_adjusted_ng_feedstock                  
+       opex_adjusted_ng_feedstock                         │               0. │ USD/year    │ 1     │ finance_subgroup_electricity.opex_adjusted_ng_feedstock                   
+       varopex_adjusted_ng_feedstock                      │    22,071,505.49 │ USD/year    │ 30    │ finance_subgroup_electricity.varopex_adjusted_ng_feedstock                
+       replacement_schedule_ng_feedstock                  │               0. │ unitless    │ 30    │ finance_subgroup_electricity.replacement_schedule_ng_feedstock            
+       skip_compute                                       │            False │ n/a         │ n/a   │ finance_subgroup_electricity.skip_compute                                 
+   finance_subgroup_natural_gas                           │                  │             │       │                                                                           
+     adjusted_capex_opex_comp                             │                  │             │       │                                                                           
+       capex_natural_gas_plant                            │   1,250,000,000. │ USD         │ 1     │ finance_subgroup_natural_gas.capex_natural_gas_plant                      
+       opex_natural_gas_plant                             │    17,883,487.26 │ USD/year    │ 1     │ finance_subgroup_natural_gas.opex_natural_gas_plant                       
+       varopex_natural_gas_plant                          │               0. │ USD/year    │ 30    │ finance_subgroup_natural_gas.varopex_natural_gas_plant                    
+       capex_ng_feedstock                                 │               0. │ USD         │ 1     │ finance_subgroup_natural_gas.capex_ng_feedstock                           
+       opex_ng_feedstock                                  │               0. │ USD/year    │ 1     │ finance_subgroup_natural_gas.opex_ng_feedstock                            
+       varopex_ng_feedstock                               │    24,362,812.27 │ USD/year    │ 30    │ finance_subgroup_natural_gas.varopex_ng_feedstock                         
+       cost_year_natural_gas_plant                        │           2,026. │ n/a         │ n/a   │ finance_subgroup_natural_gas.cost_year_natural_gas_plant                  
+       cost_year_ng_feedstock                             │           2,026. │ n/a         │ n/a   │ finance_subgroup_natural_gas.cost_year_ng_feedstock                       
+     electricity_finance_profast_lco                      │                  │             │       │                                                                           
+       rated_electricity_production                       │             500. │ MW          │ 1     │ finance_subgroup_natural_gas.rated_electricity_production                 
+     electricity_finance_profast_npv                      │                  │             │       │                                                                           
+       rated_electricity_production                       │             500. │ MW          │ 1     │ finance_subgroup_natural_gas.rated_electricity_production                 
+       capacity_factor                                    │            0.145 │ unitless    │ 30    │ finance_subgroup_natural_gas.capacity_factor                              
+       capacity_factor                                    │            0.145 │ unitless    │ 30    │ finance_subgroup_natural_gas.capacity_factor                              
+       capex_adjusted_natural_gas_plant                   │   1,132,438,306. │ USD         │ 1     │ finance_subgroup_natural_gas.capex_adjusted_natural_gas_plant             
+       capex_adjusted_natural_gas_plant                   │   1,132,438,306. │ USD         │ 1     │ finance_subgroup_natural_gas.capex_adjusted_natural_gas_plant             
+       opex_adjusted_natural_gas_plant                    │    16,201,556.82 │ USD/year    │ 1     │ finance_subgroup_natural_gas.opex_adjusted_natural_gas_plant              
+       opex_adjusted_natural_gas_plant                    │    16,201,556.82 │ USD/year    │ 1     │ finance_subgroup_natural_gas.opex_adjusted_natural_gas_plant              
+       varopex_adjusted_natural_gas_plant                 │               0. │ USD/year    │ 30    │ finance_subgroup_natural_gas.varopex_adjusted_natural_gas_plant           
+       varopex_adjusted_natural_gas_plant                 │               0. │ USD/year    │ 30    │ finance_subgroup_natural_gas.varopex_adjusted_natural_gas_plant           
+       replacement_schedule_natural_gas_plant             │               0. │ unitless    │ 30    │ finance_subgroup_natural_gas.replacement_schedule_natural_gas_plant       
+       replacement_schedule_natural_gas_plant             │               0. │ unitless    │ 30    │ finance_subgroup_natural_gas.replacement_schedule_natural_gas_plant       
+       capex_adjusted_ng_feedstock                        │               0. │ USD         │ 1     │ finance_subgroup_natural_gas.capex_adjusted_ng_feedstock                  
+       capex_adjusted_ng_feedstock                        │               0. │ USD         │ 1     │ finance_subgroup_natural_gas.capex_adjusted_ng_feedstock                  
+       opex_adjusted_ng_feedstock                         │               0. │ USD/year    │ 1     │ finance_subgroup_natural_gas.opex_adjusted_ng_feedstock                   
+       opex_adjusted_ng_feedstock                         │               0. │ USD/year    │ 1     │ finance_subgroup_natural_gas.opex_adjusted_ng_feedstock                   
+       varopex_adjusted_ng_feedstock                      │    22,071,505.49 │ USD/year    │ 30    │ finance_subgroup_natural_gas.varopex_adjusted_ng_feedstock                
+       varopex_adjusted_ng_feedstock                      │    22,071,505.49 │ USD/year    │ 30    │ finance_subgroup_natural_gas.varopex_adjusted_ng_feedstock                
+       replacement_schedule_ng_feedstock                  │               0. │ unitless    │ 30    │ finance_subgroup_natural_gas.replacement_schedule_ng_feedstock            
+       replacement_schedule_ng_feedstock                  │               0. │ unitless    │ 30    │ finance_subgroup_natural_gas.replacement_schedule_ng_feedstock            
+       skip_compute                                       │            False │ n/a         │ n/a   │ finance_subgroup_natural_gas.skip_compute                                 
+       skip_compute                                       │            False │ n/a         │ n/a   │ finance_subgroup_natural_gas.skip_compute                                 
+       sell_price_electricity__profast_npv                │               0. │ USD/kW/h    │ 30    │ finance_subgroup_natural_gas.sell_price_electricity__profast_npv          
+   finance_subgroup_renewable_generation                  │                  │             │       │                                                                           
+     adjusted_capex_opex_comp                             │                  │             │       │                                                                           
+       capex_solar                                        │ 2,077,864,222.28 │ USD         │ 1     │ finance_subgroup_renewable_generation.capex_solar                         
+       opex_solar                                         │    29,020,450.03 │ USD/year    │ 1     │ finance_subgroup_renewable_generation.opex_solar                          
+       varopex_solar                                      │               0. │ USD/year    │ 30    │ finance_subgroup_renewable_generation.varopex_solar                       
+       capex_wind                                         │   2,711,268,000. │ USD         │ 1     │ finance_subgroup_renewable_generation.capex_wind                          
+       opex_wind                                          │      54,684,000. │ USD/year    │ 1     │ finance_subgroup_renewable_generation.opex_wind                           
+       varopex_wind                                       │               0. │ USD/year    │ 30    │ finance_subgroup_renewable_generation.varopex_wind                        
+       cost_year_solar                                    │           2,022. │ n/a         │ n/a   │ finance_subgroup_renewable_generation.cost_year_solar                     
+       cost_year_wind                                     │           2,022. │ n/a         │ n/a   │ finance_subgroup_renewable_generation.cost_year_wind                      
+     electricity_finance_profast_lco                      │                  │             │       │                                                                           
+       rated_electricity_production                       │      3,215,022.5 │ kW          │ 1     │ finance_subgroup_renewable_generation.rated_electricity_production        
+     electricity_finance_profast_npv                      │                  │             │       │                                                                           
+       rated_electricity_production                       │      3,215,022.5 │ kW          │ 1     │ finance_subgroup_renewable_generation.rated_electricity_production        
+       capacity_factor                                    │           0.3861 │ unitless    │ 30    │ finance_subgroup_renewable_generation.capacity_factor                     
+       capacity_factor                                    │           0.3861 │ unitless    │ 30    │ finance_subgroup_renewable_generation.capacity_factor                     
+       capex_adjusted_solar                               │ 2,077,864,222.28 │ USD         │ 1     │ finance_subgroup_renewable_generation.capex_adjusted_solar                
+       capex_adjusted_solar                               │ 2,077,864,222.28 │ USD         │ 1     │ finance_subgroup_renewable_generation.capex_adjusted_solar                
+       opex_adjusted_solar                                │    29,020,450.03 │ USD/year    │ 1     │ finance_subgroup_renewable_generation.opex_adjusted_solar                 
+       opex_adjusted_solar                                │    29,020,450.03 │ USD/year    │ 1     │ finance_subgroup_renewable_generation.opex_adjusted_solar                 
+       varopex_adjusted_solar                             │               0. │ USD/year    │ 30    │ finance_subgroup_renewable_generation.varopex_adjusted_solar              
+       varopex_adjusted_solar                             │               0. │ USD/year    │ 30    │ finance_subgroup_renewable_generation.varopex_adjusted_solar              
+       replacement_schedule_solar                         │               0. │ unitless    │ 30    │ finance_subgroup_renewable_generation.replacement_schedule_solar          
+       replacement_schedule_solar                         │               0. │ unitless    │ 30    │ finance_subgroup_renewable_generation.replacement_schedule_solar          
+       capex_adjusted_wind                                │   2,711,268,000. │ USD         │ 1     │ finance_subgroup_renewable_generation.capex_adjusted_wind                 
+       capex_adjusted_wind                                │   2,711,268,000. │ USD         │ 1     │ finance_subgroup_renewable_generation.capex_adjusted_wind                 
+       opex_adjusted_wind                                 │      54,684,000. │ USD/year    │ 1     │ finance_subgroup_renewable_generation.opex_adjusted_wind                  
+       opex_adjusted_wind                                 │      54,684,000. │ USD/year    │ 1     │ finance_subgroup_renewable_generation.opex_adjusted_wind                  
+       varopex_adjusted_wind                              │               0. │ USD/year    │ 30    │ finance_subgroup_renewable_generation.varopex_adjusted_wind               
+       varopex_adjusted_wind                              │               0. │ USD/year    │ 30    │ finance_subgroup_renewable_generation.varopex_adjusted_wind               
+       replacement_schedule_wind                          │               0. │ unitless    │ 30    │ finance_subgroup_renewable_generation.replacement_schedule_wind           
+       replacement_schedule_wind                          │               0. │ unitless    │ 30    │ finance_subgroup_renewable_generation.replacement_schedule_wind           
+       skip_compute                                       │            False │ n/a         │ n/a   │ finance_subgroup_renewable_generation.skip_compute                        
+       skip_compute                                       │            False │ n/a         │ n/a   │ finance_subgroup_renewable_generation.skip_compute                        
+       sell_price_electricity__profast_npv                │               0. │ USD/kW/h    │ 30    │ finance_subgroup_renewable_generation.sell_price_electricity__profast_npv 
+   natural_gas_ng_feedstock_to_natural_gas_plant_pipe     │                  │             │       │                                                                           
+     natural_gas_in                                       │           7,500. │ MMBtu/h     │ 8760  │ natural_gas_ng_feedstock_to_natural_gas_plant_pipe.natural_gas_in         
+   natural_gas_plant                                      │                  │             │       │                                                                           
+     NaturalGasCostModel                                  │                  │             │       │                                                                           
+       rated_electricity_production                       │             500. │ MW          │ 1     │ natural_gas_plant.rated_electricity_production                            
+       electricity_out                                    │          72.4879 │ MW          │ 8760  │ natural_gas_plant.electricity_out                                         
+       capex_per_kw                                       │           2,500. │ USD/kW      │ 1     │ natural_gas_plant.capex_per_kw                                            
+       fixed_opex_per_kw_per_year                         │             33.1 │ USD/kW/year │ 1     │ natural_gas_plant.fixed_opex_per_kw_per_year                              
+       variable_opex_per_mwh                              │              2.1 │ USD/MW/h    │ 1     │ natural_gas_plant.variable_opex_per_mwh                                   
+       skip_compute                                       │            False │ n/a         │ n/a   │ natural_gas_plant.skip_compute                                            
+     NaturalGasPerformanceModel                           │                  │             │       │                                                                           
+       timestep_index                                     │               0. │ n/a         │ 1     │ natural_gas_plant.timestep_index                                          
+     controller                                           │                  │             │       │                                                                           
+       timestep_index                                     │               0. │ n/a         │ 1     │ natural_gas_plant.timestep_index                                          
+       heat_rate_mmbtu_per_mwh                            │              6.3 │ MMBtu/MW/h  │ 1     │ natural_gas_plant.heat_rate_mmbtu_per_mwh                                 
+       system_capacity                                    │             500. │ MW          │ 1     │ natural_gas_plant.system_capacity                                         
+       electricity_command_value                          │          72.4879 │ MW          │ 8760  │ natural_gas_plant.electricity_command_value                               
+       natural_gas_in                                     │           7,500. │ MMBtu/h     │ 8760  │ natural_gas_plant.natural_gas_in                                          
+       electricity_set_point                              │          72.4879 │ MW          │ 8760  │ natural_gas_plant.electricity_set_point                                   
+   ng_feedstock                                           │                  │             │       │                                                                           
+     natural_gas_consumed                                 │         456.6737 │ MMBtu/h     │ 8760  │ ng_feedstock.natural_gas_consumed                                         
+     natural_gas_out                                      │           7,500. │ MMBtu/h     │ 8760  │ ng_feedstock.natural_gas_out                                              
+     price                                                │             6.09 │ USD/MMBtu   │ 1     │ ng_feedstock.price                                                        
+     skip_compute                                         │            False │ n/a         │ n/a   │ ng_feedstock.skip_compute                                                 
+   ng_feedstock_source                                    │                  │             │       │                                                                           
+     natural_gas_capacity                                 │           7,500. │ MMBtu/h     │ 1     │ ng_feedstock_source.natural_gas_capacity                                  
+   renew_combiner                                         │                  │             │       │                                                                           
+     GenericCombinerPerformanceModel                      │                  │             │       │                                                                           
+       electricity_in1                                    │       356,127.65 │ kW          │ 8760  │ renew_combiner.electricity_in1                                            
+       rated_electricity_production1                      │      1,451,022.5 │ kW          │ 1     │ renew_combiner.rated_electricity_production1                              
+       electricity_capacity_factor1                       │           0.3451 │ unitless    │ 30    │ renew_combiner.electricity_capacity_factor1                               
+       electricity_in2                                    │       589,958.77 │ kW          │ 8760  │ renew_combiner.electricity_in2                                            
+       rated_electricity_production2                      │       1,764,000. │ kW          │ 1     │ renew_combiner.rated_electricity_production2                              
+       electricity_capacity_factor2                       │           0.4199 │ unitless    │ 30    │ renew_combiner.electricity_capacity_factor2                               
+   solar                                                  │                  │             │       │                                                                           
+     ATBUtilityPVCostModel                                │                  │             │       │                                                                           
+       system_capacity_AC                                 │      1,451,022.5 │ kW          │ 1     │ solar.system_capacity_AC                                                  
+       skip_compute                                       │            False │ n/a         │ n/a   │ solar.skip_compute                                                        
+     PYSAMSolarPlantPerformanceModel                      │                  │             │       │                                                                           
+       timestep_index                                     │               0. │ n/a         │ 1     │ solar.timestep_index                                                      
+     controller                                           │                  │             │       │                                                                           
+       timestep_index                                     │               0. │ n/a         │ 1     │ solar.timestep_index                                                      
+       electricity_command_value                          │       356,127.65 │ kW          │ 8760  │ solar.electricity_command_value                                           
+       system_capacity_DC                                 │     1,944,370.15 │ kW          │ 1     │ solar.system_capacity_DC                                                  
+       electricity_set_point                              │       356,127.65 │ kW          │ 8760  │ solar.electricity_set_point                                               
+   supply_combiner                                        │                  │             │       │                                                                           
+     GenericCombinerPerformanceModel                      │                  │             │       │                                                                           
+       electricity_in1                                    │       946,086.42 │ kW          │ 8760  │ supply_combiner.electricity_in1                                           
+       rated_electricity_production1                      │      3,215,022.5 │ kW          │ 1     │ supply_combiner.rated_electricity_production1                             
+       electricity_capacity_factor1                       │           0.3861 │ unitless    │ 30    │ supply_combiner.electricity_capacity_factor1                              
+       electricity_in2                                    │       72,487.892 │ kW          │ 8760  │ supply_combiner.electricity_in2                                           
+       rated_electricity_production2                      │         500,000. │ kW          │ 1     │ supply_combiner.rated_electricity_production2                             
+       electricity_capacity_factor2                       │            0.145 │ unitless    │ 30    │ supply_combiner.electricity_capacity_factor2                              
+   system_level_controller                                │                  │             │       │                                                                           
+     timestep_index                                       │               0. │ n/a         │ 1     │ system_level_controller.timestep_index                                    
+     electricity_demand                                   │       1,000,000. │ kW          │ 8760  │ system_level_controller.electricity_demand                                
+     wind_electricity_out                                 │       589,958.77 │ kW          │ 8760  │ system_level_controller.wind_electricity_out                              
+     wind_rated_electricity_production                    │       1,764,000. │ kW          │ 1     │ system_level_controller.wind_rated_electricity_production                 
+     solar_electricity_out                                │       356,127.65 │ kW          │ 8760  │ system_level_controller.solar_electricity_out                             
+     solar_rated_electricity_production                   │      1,451,022.5 │ kW          │ 1     │ system_level_controller.solar_rated_electricity_production                
+     natural_gas_plant_electricity_out                    │       72,487.892 │ kW          │ 8760  │ system_level_controller.natural_gas_plant_electricity_out                 
+     natural_gas_plant_rated_electricity_production       │         500,000. │ kW          │ 1     │ system_level_controller.natural_gas_plant_rated_electricity_production    
+     battery_electricity_out                              │     -18,685.5808 │ kW          │ 8760  │ system_level_controller.battery_electricity_out                           
+     battery_rated_electricity_production                 │       1,000,000. │ kW          │ 1     │ system_level_controller.battery_rated_electricity_production              
+     battery_electricity_storage_duration                 │           9.6791 │ h           │ 1     │ system_level_controller.battery_electricity_storage_duration              
+     ng_feedstock_natural_gas_out                         │           7,500. │ MMBtu/h     │ 8760  │ system_level_controller.ng_feedstock_natural_gas_out                      
+     battery_SOC                                          │           0.3071 │ unitless    │ 8760  │ system_level_controller.battery_SOC                                       
+   wind                                                   │                  │             │       │                                                                           
+     ATBWindPlantCostModel                                │                  │             │       │                                                                           
+       rated_electricity_production                       │       1,764,000. │ kW          │ 1     │ wind.rated_electricity_production                                         
+       skip_compute                                       │            False │ n/a         │ n/a   │ wind.skip_compute                                                         
+     PYSAMWindPlantPerformanceModel                       │                  │             │       │                                                                           
+       timestep_index                                     │               0. │ n/a         │ 1     │ wind.timestep_index                                                       
+     controller                                           │                  │             │       │                                                                           
+       timestep_index                                     │               0. │ n/a         │ 1     │ wind.timestep_index                                                       
+       electricity_command_value                          │       589,958.77 │ kW          │ 8760  │ wind.electricity_command_value                                            
+       num_turbines                                       │             294. │ unitless    │ 1     │ wind.num_turbines                                                         
+       wind_turbine_rating                                │           6,000. │ kW          │ 1     │ wind.wind_turbine_rating                                                  
+       rotor_diameter                                     │             170. │ m           │ 1     │ wind.rotor_diameter                                                       
+       hub_height                                         │             115. │ m           │ 1     │ wind.hub_height                                                           
+       electricity_set_point                              │       589,958.77 │ kW          │ 8760  │ wind.electricity_set_point                                                
+ site                                                     │                  │             │       │                                                                           
+   solar_resource                                         │                  │             │       │                                                                           
+     latitude                                             │          34.3823 │ deg         │ 1     │ site.latitude                                                             
+   wind_resource                                          │                  │             │       │                                                                           
+     latitude                                             │          34.3823 │ deg         │ 1     │ site.latitude                                                             
+     longitude                                            │        -101.8166 │ deg         │ 1     │ site.longitude                                                            
+     longitude                                            │        -101.8166 │ deg         │ 1     │ site.longitude                                                            
+                                                          ╵                  ╵             ╵       ╵                                                                           
+
+175 explicit outputs:
+                                                          ╷                   ╷            ╷       ╷                                                                                        
+ Variable                                                 │              Mean │ Units      │ Shape │ Promoted name                                                                          
+╶─────────────────────────────────────────────────────────┼───────────────────┼────────────┼───────┼───────────────────────────────────────────────────────────────────────────────────────╴
+ plant                                                    │                   │            │       │                                                                                        
+   battery                                                │                   │            │       │                                                                                        
+     ATBBatteryCostModel                                  │                   │            │       │                                                                                        
+       CapEx                                              │  3,186,688,073.16 │ USD        │ 1     │ battery.CapEx                                                                          
+       OpEx                                               │     79,667,201.83 │ USD/year   │ 1     │ battery.OpEx                                                                           
+       VarOpEx                                            │                0. │ USD/year   │ 30    │ battery.VarOpEx                                                                        
+       marginal_cost                                      │                0. │ USD/kW/h   │ 1     │ battery.marginal_cost                                                                  
+       cost_year                                          │              2022 │ n/a        │ n/a   │ battery.cost_year                                                                      
+     SimpleStorageOpenLoopController                      │                   │            │       │                                                                                        
+       electricity_command_value                          │      -19,299.7136 │ kW         │ 8760  │ battery.electricity_command_value                                                      
+     StoragePerformanceModel                              │                   │            │       │                                                                                        
+       electricity_out                                    │      -18,685.5808 │ kW         │ 8760  │ battery.electricity_out                                                                
+       total_electricity_produced                         │   -163,685,687.42 │ kW*h       │ 1     │ battery.total_electricity_produced                                                     
+       annual_electricity_produced                        │   -163,685,687.42 │ kW*h/year  │ 30    │ battery.annual_electricity_produced                                                    
+       replacement_schedule                               │                0. │ unitless   │ 30    │ battery.replacement_schedule                                                           
+       capacity_factor                                    │           -0.0187 │ unitless   │ 30    │ battery.capacity_factor                                                                
+       rated_electricity_production                       │        1,000,000. │ kW         │ 1     │ battery.rated_electricity_production                                                   
+       operational_life                                   │                30 │ year       │ 1     │ battery.operational_life                                                               
+       storage_duration                                   │            9.6791 │ h          │ 1     │ battery.storage_duration                                                               
+       SOC                                                │           30.7076 │ percent    │ 8760  │ battery.SOC                                                                            
+       storage_electricity_discharge                      │        170,790.77 │ kW         │ 8760  │ battery.storage_electricity_discharge                                                  
+       storage_electricity_charge                         │       -189,476.35 │ kW         │ 8760  │ battery.storage_electricity_charge                                                     
+       standard_capacity_factor                           │            0.1708 │ unitless   │ 30    │ battery.standard_capacity_factor                                                       
+       electricity_headroom_out                           │        657,022.19 │ kW         │ 8760  │ battery.electricity_headroom_out                                                       
+   combiner                                               │                   │            │       │                                                                                        
+     GenericCombinerPerformanceModel                      │                   │            │       │                                                                                        
+       electricity_out                                    │        999,888.73 │ kW         │ 8760  │ combiner.electricity_out                                                               
+       capacity_factor                                    │            0.2747 │ unitless   │ 30    │ combiner.capacity_factor                                                               
+       rated_electricity_production                       │       4,715,022.5 │ kW         │ 1     │ combiner.rated_electricity_production                                                  
+   electrical_load_demand                                 │                   │            │       │                                                                                        
+     GenericDemandComponent                               │                   │            │       │                                                                                        
+       electricity_out                                    │         999,274.6 │ kW         │ 8760  │ electrical_load_demand.electricity_out                                                 
+       total_electricity_produced                         │  8,753,645,455.06 │ kW*h       │ 1     │ electrical_load_demand.total_electricity_produced                                      
+       annual_electricity_produced                        │  8,753,645,455.06 │ kW*h/year  │ 30    │ electrical_load_demand.annual_electricity_produced                                     
+       replacement_schedule                               │                0. │ unitless   │ 30    │ electrical_load_demand.replacement_schedule                                            
+       capacity_factor                                    │            0.9993 │ unitless   │ 30    │ electrical_load_demand.capacity_factor                                                 
+       rated_electricity_production                       │        1,000,000. │ kW         │ 1     │ electrical_load_demand.rated_electricity_production                                    
+       operational_life                                   │                30 │ year       │ 1     │ electrical_load_demand.operational_life                                                
+       unmet_electricity_demand_out                       │          725.4047 │ kW         │ 8760  │ electrical_load_demand.unmet_electricity_demand_out                                    
+       unused_electricity_out                             │          614.1328 │ kW         │ 8760  │ electrical_load_demand.unused_electricity_out                                          
+       electricity_demand_out                             │        1,000,000. │ kW         │ 8760  │ electrical_load_demand.electricity_demand_out                                          
+       percent_load_missed                                │            0.0725 │ percent    │ 1     │ electrical_load_demand.percent_load_missed                                             
+       curtailment_percent                                │            0.0614 │ percent    │ 1     │ electrical_load_demand.curtailment_percent                                             
+   electricity_battery_to_combiner_cable                  │                   │            │       │                                                                                        
+     electricity_out                                      │      -18,685.5808 │ kW         │ 8760  │ electricity_battery_to_combiner_cable.electricity_out                                  
+   electricity_combiner_to_electrical_load_demand_cable   │                   │            │       │                                                                                        
+     electricity_out                                      │        999,888.73 │ kW         │ 8760  │ electricity_combiner_to_electrical_load_demand_cable.electricity_out                   
+   electricity_natural_gas_plant_to_supply_combiner_cable │                   │            │       │                                                                                        
+     electricity_out                                      │        72,487.892 │ kW         │ 8760  │ electricity_natural_gas_plant_to_supply_combiner_cable.electricity_out                 
+   electricity_renew_combiner_to_supply_combiner_cable    │                   │            │       │                                                                                        
+     electricity_out                                      │        946,086.42 │ kW         │ 8760  │ electricity_renew_combiner_to_supply_combiner_cable.electricity_out                    
+   electricity_solar_to_renew_combiner_cable              │                   │            │       │                                                                                        
+     electricity_out                                      │        356,127.65 │ kW         │ 8760  │ electricity_solar_to_renew_combiner_cable.electricity_out                              
+   electricity_supply_combiner_to_battery_cable           │                   │            │       │                                                                                        
+     electricity_out                                      │      1,018,574.31 │ kW         │ 8760  │ electricity_supply_combiner_to_battery_cable.electricity_out                           
+   electricity_supply_combiner_to_combiner_cable          │                   │            │       │                                                                                        
+     electricity_out                                      │      1,018,574.31 │ kW         │ 8760  │ electricity_supply_combiner_to_combiner_cable.electricity_out                          
+   electricity_wind_to_renew_combiner_cable               │                   │            │       │                                                                                        
+     electricity_out                                      │        589,958.77 │ kW         │ 8760  │ electricity_wind_to_renew_combiner_cable.electricity_out                               
+   finance_subgroup_electricity                           │                   │            │       │                                                                                        
+     adjusted_capex_opex_comp                             │                   │            │       │                                                                                        
+       capex_adjusted_solar                               │  2,077,864,222.28 │ USD        │ 1     │ finance_subgroup_electricity.capex_adjusted_solar                                      
+       opex_adjusted_solar                                │     29,020,450.03 │ USD/year   │ 1     │ finance_subgroup_electricity.opex_adjusted_solar                                       
+       varopex_adjusted_solar                             │                0. │ USD/year   │ 30    │ finance_subgroup_electricity.varopex_adjusted_solar                                    
+       capex_adjusted_wind                                │    2,711,268,000. │ USD        │ 1     │ finance_subgroup_electricity.capex_adjusted_wind                                       
+       opex_adjusted_wind                                 │       54,684,000. │ USD/year   │ 1     │ finance_subgroup_electricity.opex_adjusted_wind                                        
+       varopex_adjusted_wind                              │                0. │ USD/year   │ 30    │ finance_subgroup_electricity.varopex_adjusted_wind                                     
+       capex_adjusted_battery                             │  3,186,688,073.16 │ USD        │ 1     │ finance_subgroup_electricity.capex_adjusted_battery                                    
+       opex_adjusted_battery                              │     79,667,201.83 │ USD/year   │ 1     │ finance_subgroup_electricity.opex_adjusted_battery                                     
+       varopex_adjusted_battery                           │                0. │ USD/year   │ 30    │ finance_subgroup_electricity.varopex_adjusted_battery                                  
+       capex_adjusted_natural_gas_plant                   │    1,132,438,306. │ USD        │ 1     │ finance_subgroup_electricity.capex_adjusted_natural_gas_plant                          
+       opex_adjusted_natural_gas_plant                    │     16,201,556.82 │ USD/year   │ 1     │ finance_subgroup_electricity.opex_adjusted_natural_gas_plant                           
+       varopex_adjusted_natural_gas_plant                 │                0. │ USD/year   │ 30    │ finance_subgroup_electricity.varopex_adjusted_natural_gas_plant                        
+       capex_adjusted_ng_feedstock                        │                0. │ USD        │ 1     │ finance_subgroup_electricity.capex_adjusted_ng_feedstock                               
+       opex_adjusted_ng_feedstock                         │                0. │ USD/year   │ 1     │ finance_subgroup_electricity.opex_adjusted_ng_feedstock                                
+       varopex_adjusted_ng_feedstock                      │     22,071,505.49 │ USD/year   │ 30    │ finance_subgroup_electricity.varopex_adjusted_ng_feedstock                             
+       total_capex_adjusted                               │  9,108,258,601.44 │ USD        │ 1     │ finance_subgroup_electricity.total_capex_adjusted                                      
+       total_opex_adjusted                                │    179,573,208.68 │ USD/year   │ 1     │ finance_subgroup_electricity.total_opex_adjusted                                       
+       total_varopex_adjusted                             │     22,071,505.49 │ USD/year   │ 30    │ finance_subgroup_electricity.total_varopex_adjusted                                    
+     electricity_finance_profast_lco                      │                   │            │       │                                                                                        
+       LCOE                                               │            0.1037 │ USD/kW/h   │ 1     │ finance_subgroup_electricity.LCOE                                                      
+       price_electricity                                  │            0.1037 │ USD/kW/h   │ 1     │ finance_subgroup_electricity.price_electricity                                         
+       wacc_electricity                                   │            0.0625 │ percent    │ 1     │ finance_subgroup_electricity.wacc_electricity                                          
+       crf_electricity                                    │            0.0723 │ percent    │ 1     │ finance_subgroup_electricity.crf_electricity                                           
+       irr_electricity                                    │              0.09 │ percent    │ 1     │ finance_subgroup_electricity.irr_electricity                                           
+       profit_index_electricity                           │            1.5693 │ unitless   │ 1     │ finance_subgroup_electricity.profit_index_electricity                                  
+       investor_payback_period_electricity                │                 8 │ year       │ 1     │ finance_subgroup_electricity.investor_payback_period_electricity                       
+       LCOE_breakdown                                     │               n/a │ n/a        │ n/a   │ finance_subgroup_electricity.LCOE_breakdown                                            
+   finance_subgroup_natural_gas                           │                   │            │       │                                                                                        
+     adjusted_capex_opex_comp                             │                   │            │       │                                                                                        
+       capex_adjusted_natural_gas_plant                   │    1,132,438,306. │ USD        │ 1     │ finance_subgroup_natural_gas.capex_adjusted_natural_gas_plant                          
+       opex_adjusted_natural_gas_plant                    │     16,201,556.82 │ USD/year   │ 1     │ finance_subgroup_natural_gas.opex_adjusted_natural_gas_plant                           
+       varopex_adjusted_natural_gas_plant                 │                0. │ USD/year   │ 30    │ finance_subgroup_natural_gas.varopex_adjusted_natural_gas_plant                        
+       capex_adjusted_ng_feedstock                        │                0. │ USD        │ 1     │ finance_subgroup_natural_gas.capex_adjusted_ng_feedstock                               
+       opex_adjusted_ng_feedstock                         │                0. │ USD/year   │ 1     │ finance_subgroup_natural_gas.opex_adjusted_ng_feedstock                                
+       varopex_adjusted_ng_feedstock                      │     22,071,505.49 │ USD/year   │ 30    │ finance_subgroup_natural_gas.varopex_adjusted_ng_feedstock                             
+       total_capex_adjusted                               │    1,132,438,306. │ USD        │ 1     │ finance_subgroup_natural_gas.total_capex_adjusted                                      
+       total_opex_adjusted                                │     16,201,556.82 │ USD/year   │ 1     │ finance_subgroup_natural_gas.total_opex_adjusted                                       
+       total_varopex_adjusted                             │     22,071,505.49 │ USD/year   │ 30    │ finance_subgroup_natural_gas.total_varopex_adjusted                                    
+     electricity_finance_profast_lco                      │                   │            │       │                                                                                        
+       LCOE_profast_lco                                   │          253.0612 │ USD/MW/h   │ 1     │ finance_subgroup_natural_gas.LCOE_profast_lco                                          
+       price_electricity__profast_lco                     │          253.0612 │ USD/MW/h   │ 1     │ finance_subgroup_natural_gas.price_electricity__profast_lco                            
+       wacc_electricity__profast_lco                      │            0.0625 │ percent    │ 1     │ finance_subgroup_natural_gas.wacc_electricity__profast_lco                             
+       crf_electricity__profast_lco                       │            0.0723 │ percent    │ 1     │ finance_subgroup_natural_gas.crf_electricity__profast_lco                              
+       irr_electricity__profast_lco                       │              0.09 │ percent    │ 1     │ finance_subgroup_natural_gas.irr_electricity__profast_lco                              
+       profit_index_electricity__profast_lco              │             1.578 │ unitless   │ 1     │ finance_subgroup_natural_gas.profit_index_electricity__profast_lco                     
+       investor_payback_period_electricity__profast_lco   │                 8 │ year       │ 1     │ finance_subgroup_natural_gas.investor_payback_period_electricity__profast_lco          
+       LCOE_profast_lco_breakdown                         │               n/a │ n/a        │ n/a   │ finance_subgroup_natural_gas.LCOE_profast_lco_breakdown                                
+     electricity_finance_profast_npv                      │                   │            │       │                                                                                        
+       NPV_electricity__profast_npv                       │   -875,246,410.15 │ USD        │ 1     │ finance_subgroup_natural_gas.NPV_electricity__profast_npv                              
+   finance_subgroup_renewable_generation                  │                   │            │       │                                                                                        
+     adjusted_capex_opex_comp                             │                   │            │       │                                                                                        
+       capex_adjusted_solar                               │  2,077,864,222.28 │ USD        │ 1     │ finance_subgroup_renewable_generation.capex_adjusted_solar                             
+       opex_adjusted_solar                                │     29,020,450.03 │ USD/year   │ 1     │ finance_subgroup_renewable_generation.opex_adjusted_solar                              
+       varopex_adjusted_solar                             │                0. │ USD/year   │ 30    │ finance_subgroup_renewable_generation.varopex_adjusted_solar                           
+       capex_adjusted_wind                                │    2,711,268,000. │ USD        │ 1     │ finance_subgroup_renewable_generation.capex_adjusted_wind                              
+       opex_adjusted_wind                                 │       54,684,000. │ USD/year   │ 1     │ finance_subgroup_renewable_generation.opex_adjusted_wind                               
+       varopex_adjusted_wind                              │                0. │ USD/year   │ 30    │ finance_subgroup_renewable_generation.varopex_adjusted_wind                            
+       total_capex_adjusted                               │  4,789,132,222.28 │ USD        │ 1     │ finance_subgroup_renewable_generation.total_capex_adjusted                             
+       total_opex_adjusted                                │     83,704,450.03 │ USD/year   │ 1     │ finance_subgroup_renewable_generation.total_opex_adjusted                              
+       total_varopex_adjusted                             │                0. │ USD/year   │ 30    │ finance_subgroup_renewable_generation.total_varopex_adjusted                           
+     electricity_finance_profast_lco                      │                   │            │       │                                                                                        
+       LCOE_profast_lco                                   │            0.0547 │ USD/kW/h   │ 1     │ finance_subgroup_renewable_generation.LCOE_profast_lco                                 
+       price_electricity__profast_lco                     │            0.0547 │ USD/kW/h   │ 1     │ finance_subgroup_renewable_generation.price_electricity__profast_lco                   
+       wacc_electricity__profast_lco                      │            0.0625 │ percent    │ 1     │ finance_subgroup_renewable_generation.wacc_electricity__profast_lco                    
+       crf_electricity__profast_lco                       │            0.0723 │ percent    │ 1     │ finance_subgroup_renewable_generation.crf_electricity__profast_lco                     
+       irr_electricity__profast_lco                       │              0.09 │ percent    │ 1     │ finance_subgroup_renewable_generation.irr_electricity__profast_lco                     
+       profit_index_electricity__profast_lco              │            1.5658 │ unitless   │ 1     │ finance_subgroup_renewable_generation.profit_index_electricity__profast_lco            
+       investor_payback_period_electricity__profast_lco   │                 8 │ year       │ 1     │ finance_subgroup_renewable_generation.investor_payback_period_electricity__profast_lco 
+       LCOE_profast_lco_breakdown                         │               n/a │ n/a        │ n/a   │ finance_subgroup_renewable_generation.LCOE_profast_lco_breakdown                       
+     electricity_finance_profast_npv                      │                   │            │       │                                                                                        
+       NPV_electricity__profast_npv                       │ -3,237,644,223.99 │ USD        │ 1     │ finance_subgroup_renewable_generation.NPV_electricity__profast_npv                     
+   natural_gas_ng_feedstock_to_natural_gas_plant_pipe     │                   │            │       │                                                                                        
+     natural_gas_out                                      │            7,500. │ MMBtu/h    │ 8760  │ natural_gas_ng_feedstock_to_natural_gas_plant_pipe.natural_gas_out                     
+   natural_gas_plant                                      │                   │            │       │                                                                                        
+     NaturalGasCostModel                                  │                   │            │       │                                                                                        
+       CapEx                                              │    1,250,000,000. │ USD        │ 1     │ natural_gas_plant.CapEx                                                                
+       OpEx                                               │     17,883,487.26 │ USD/year   │ 1     │ natural_gas_plant.OpEx                                                                 
+       VarOpEx                                            │                0. │ USD/year   │ 30    │ natural_gas_plant.VarOpEx                                                              
+       marginal_cost                                      │                0. │ USD/kW/h   │ 1     │ natural_gas_plant.marginal_cost                                                        
+       cost_year                                          │              2026 │ n/a        │ n/a   │ natural_gas_plant.cost_year                                                            
+     NaturalGasPerformanceModel                           │                   │            │       │                                                                                        
+       electricity_out                                    │           72.4879 │ MW         │ 8760  │ natural_gas_plant.electricity_out                                                      
+       total_electricity_produced                         │        634,993.93 │ MW*h       │ 1     │ natural_gas_plant.total_electricity_produced                                           
+       annual_electricity_produced                        │        634,993.93 │ MW*h/year  │ 30    │ natural_gas_plant.annual_electricity_produced                                          
+       replacement_schedule                               │                0. │ unitless   │ 30    │ natural_gas_plant.replacement_schedule                                                 
+       capacity_factor                                    │             0.145 │ unitless   │ 30    │ natural_gas_plant.capacity_factor                                                      
+       rated_electricity_production                       │              500. │ MW         │ 1     │ natural_gas_plant.rated_electricity_production                                         
+       operational_life                                   │                30 │ year       │ 1     │ natural_gas_plant.operational_life                                                     
+       natural_gas_consumed                               │          456.6737 │ MMBtu/h    │ 8760  │ natural_gas_plant.natural_gas_consumed                                                 
+       electricity_headroom_out                           │          427.5121 │ MW         │ 8760  │ natural_gas_plant.electricity_headroom_out                                             
+       unmet_electricity_demand                           │                0. │ MW         │ 8760  │ natural_gas_plant.unmet_electricity_demand                                             
+     controller                                           │                   │            │       │                                                                                        
+       electricity_command_value                          │           72.4879 │ MW         │ 8760  │ natural_gas_plant.electricity_command_value                                            
+   ng_feedstock                                           │                   │            │       │                                                                                        
+     CapEx                                                │                0. │ USD        │ 1     │ ng_feedstock.CapEx                                                                     
+     OpEx                                                 │                0. │ USD/year   │ 1     │ ng_feedstock.OpEx                                                                      
+     VarOpEx                                              │     24,362,812.27 │ USD/year   │ 30    │ ng_feedstock.VarOpEx                                                                   
+     marginal_cost                                        │                0. │ USD/MMBtu  │ 1     │ ng_feedstock.marginal_cost                                                             
+     total_natural_gas_consumed                           │      4,000,461.79 │ MMBtu      │ 1     │ ng_feedstock.total_natural_gas_consumed                                                
+     annual_natural_gas_consumed                          │      4,000,461.79 │ MMBtu/year │ 30    │ ng_feedstock.annual_natural_gas_consumed                                               
+     capacity_factor                                      │            0.0609 │ unitless   │ 30    │ ng_feedstock.capacity_factor                                                           
+     replacement_schedule                                 │                0. │ unitless   │ 30    │ ng_feedstock.replacement_schedule                                                      
+     rated_natural_gas_production                         │            7,500. │ MMBtu/h    │ 1     │ ng_feedstock.rated_natural_gas_production                                              
+     cost_year                                            │              2026 │ n/a        │ n/a   │ ng_feedstock.cost_year                                                                 
+   ng_feedstock_source                                    │                   │            │       │                                                                                        
+     natural_gas_out                                      │            7,500. │ MMBtu/h    │ 8760  │ ng_feedstock_source.natural_gas_out                                                    
+   renew_combiner                                         │                   │            │       │                                                                                        
+     GenericCombinerPerformanceModel                      │                   │            │       │                                                                                        
+       electricity_out                                    │        946,086.42 │ kW         │ 8760  │ renew_combiner.electricity_out                                                         
+       capacity_factor                                    │            0.3861 │ unitless   │ 30    │ renew_combiner.capacity_factor                                                         
+       rated_electricity_production                       │       3,215,022.5 │ kW         │ 1     │ renew_combiner.rated_electricity_production                                            
+   solar                                                  │                   │            │       │                                                                                        
+     ATBUtilityPVCostModel                                │                   │            │       │                                                                                        
+       CapEx                                              │  2,077,864,222.28 │ USD        │ 1     │ solar.CapEx                                                                            
+       OpEx                                               │     29,020,450.03 │ USD/year   │ 1     │ solar.OpEx                                                                             
+       VarOpEx                                            │                0. │ USD/year   │ 30    │ solar.VarOpEx                                                                          
+       marginal_cost                                      │                0. │ USD/kW/h   │ 1     │ solar.marginal_cost                                                                    
+       cost_year                                          │              2022 │ n/a        │ n/a   │ solar.cost_year                                                                        
+     PYSAMSolarPlantPerformanceModel                      │                   │            │       │                                                                                        
+       electricity_out                                    │        356,127.65 │ kW         │ 8760  │ solar.electricity_out                                                                  
+       total_electricity_produced                         │  4,386,043,816.55 │ kW*h       │ 1     │ solar.total_electricity_produced                                                       
+       annual_electricity_produced                        │  4,386,043,816.55 │ kW*h/year  │ 30    │ solar.annual_electricity_produced                                                      
+       replacement_schedule                               │                0. │ unitless   │ 30    │ solar.replacement_schedule                                                             
+       capacity_factor                                    │            0.3451 │ unitless   │ 30    │ solar.capacity_factor                                                                  
+       rated_electricity_production                       │       1,451,022.5 │ kW         │ 1     │ solar.rated_electricity_production                                                     
+       operational_life                                   │                30 │ year       │ 1     │ solar.operational_life                                                                 
+       uncurtailed_electricity_out                        │        500,689.93 │ kW         │ 8760  │ solar.uncurtailed_electricity_out                                                      
+       system_capacity_AC                                 │       1,451,022.5 │ kW         │ 1     │ solar.system_capacity_AC                                                               
+     controller                                           │                   │            │       │                                                                                        
+       electricity_command_value                          │        356,127.65 │ kW         │ 8760  │ solar.electricity_command_value                                                        
+   supply_combiner                                        │                   │            │       │                                                                                        
+     GenericCombinerPerformanceModel                      │                   │            │       │                                                                                        
+       electricity_out                                    │      1,018,574.31 │ kW         │ 8760  │ supply_combiner.electricity_out                                                        
+       capacity_factor                                    │            0.3537 │ unitless   │ 30    │ supply_combiner.capacity_factor                                                        
+       rated_electricity_production                       │       3,715,022.5 │ kW         │ 1     │ supply_combiner.rated_electricity_production                                           
+   system_level_controller                                │                   │            │       │                                                                                        
+     wind_electricity_set_point                           │        589,958.77 │ kW         │ 8760  │ system_level_controller.wind_electricity_set_point                                     
+     solar_electricity_set_point                          │        356,127.65 │ kW         │ 8760  │ system_level_controller.solar_electricity_set_point                                    
+     natural_gas_plant_electricity_set_point              │        72,487.892 │ kW         │ 8760  │ system_level_controller.natural_gas_plant_electricity_set_point                        
+     battery_electricity_set_point                        │         999,274.6 │ kW         │ 8760  │ system_level_controller.battery_electricity_set_point                                  
+     uc_solve_wall_s                                      │           36.1097 │ s          │ 1     │ system_level_controller.uc_solve_wall_s                                                
+   wind                                                   │                   │            │       │                                                                                        
+     ATBWindPlantCostModel                                │                   │            │       │                                                                                        
+       CapEx                                              │    2,711,268,000. │ USD        │ 1     │ wind.CapEx                                                                             
+       OpEx                                               │       54,684,000. │ USD/year   │ 1     │ wind.OpEx                                                                              
+       VarOpEx                                            │                0. │ USD/year   │ 30    │ wind.VarOpEx                                                                           
+       marginal_cost                                      │                0. │ USD/kW/h   │ 1     │ wind.marginal_cost                                                                     
+       cost_year                                          │              2022 │ n/a        │ n/a   │ wind.cost_year                                                                         
+     PYSAMWindPlantPerformanceModel                       │                   │            │       │                                                                                        
+       electricity_out                                    │        589,958.77 │ kW         │ 8760  │ wind.electricity_out                                                                   
+       total_electricity_produced                         │  6,488,212,202.92 │ kW*h       │ 1     │ wind.total_electricity_produced                                                        
+       annual_electricity_produced                        │  6,488,212,202.92 │ kW*h/year  │ 30    │ wind.annual_electricity_produced                                                       
+       replacement_schedule                               │                0. │ unitless   │ 30    │ wind.replacement_schedule                                                              
+       capacity_factor                                    │            0.4199 │ unitless   │ 30    │ wind.capacity_factor                                                                   
+       rated_electricity_production                       │        1,764,000. │ kW         │ 1     │ wind.rated_electricity_production                                                      
+       operational_life                                   │                30 │ year       │ 1     │ wind.operational_life                                                                  
+       uncurtailed_electricity_out                        │        740,663.49 │ kW         │ 8760  │ wind.uncurtailed_electricity_out                                                       
+     controller                                           │                   │            │       │                                                                                        
+       electricity_command_value                          │        589,958.77 │ kW         │ 8760  │ wind.electricity_command_value                                                         
+ site                                                     │                   │            │       │                                                                                        
+   site_component                                         │                   │            │       │                                                                                        
+     latitude                                             │           34.3823 │ deg        │ 1     │ site.latitude                                                                          
+     longitude                                            │         -101.8166 │ deg        │ 1     │ site.longitude                                                                         
+     elevation                                            │                0. │ m          │ 1     │ site.elevation                                                                         
+                                                          ╵                   ╵            ╵       ╵                                                                                        

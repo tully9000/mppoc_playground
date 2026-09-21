@@ -1,0 +1,2245 @@
+{
+  "inputs": {
+    "plant.battery.ATBBatteryCostModel.max_charge_rate": {
+      "mean": "1000000.0",
+      "units": "kW",
+      "shape": 1,
+      "promoted_name": "battery.max_charge_rate"
+    },
+    "plant.battery.StoragePerformanceModel.max_charge_rate": {
+      "mean": "1000000.0",
+      "units": "kW",
+      "shape": 1,
+      "promoted_name": "battery.max_charge_rate"
+    },
+    "plant.battery.ATBBatteryCostModel.storage_capacity": {
+      "mean": "9679084.421410603",
+      "units": "kW*h",
+      "shape": 1,
+      "promoted_name": "battery.storage_capacity"
+    },
+    "plant.battery.StoragePerformanceModel.storage_capacity": {
+      "mean": "9679084.421410603",
+      "units": "kW*h",
+      "shape": 1,
+      "promoted_name": "battery.storage_capacity"
+    },
+    "plant.battery.ATBBatteryCostModel.skip_compute": {
+      "mean": "False",
+      "units": "n/a",
+      "shape": "n/a",
+      "promoted_name": "battery.skip_compute"
+    },
+    "plant.battery.SimpleStorageOpenLoopController.timestep_index": {
+      "mean": "0.0",
+      "units": "n/a",
+      "shape": 1,
+      "promoted_name": "battery.timestep_index"
+    },
+    "plant.battery.StoragePerformanceModel.timestep_index": {
+      "mean": "0.0",
+      "units": "n/a",
+      "shape": 1,
+      "promoted_name": "battery.timestep_index"
+    },
+    "plant.battery.SimpleStorageOpenLoopController.electricity_set_point": {
+      "mean": "999274.5953263714",
+      "units": "kW",
+      "shape": 8760,
+      "promoted_name": "battery.electricity_set_point"
+    },
+    "plant.battery.SimpleStorageOpenLoopController.electricity_in": {
+      "mean": "1018574.3089148413",
+      "units": "kW",
+      "shape": 8760,
+      "promoted_name": "battery.electricity_in"
+    },
+    "plant.battery.StoragePerformanceModel.electricity_in": {
+      "mean": "1018574.3089148413",
+      "units": "kW",
+      "shape": 8760,
+      "promoted_name": "battery.electricity_in"
+    },
+    "plant.battery.StoragePerformanceModel.electricity_command_value": {
+      "mean": "-19299.713588469865",
+      "units": "kW",
+      "shape": 8760,
+      "promoted_name": "battery.electricity_command_value"
+    },
+    "plant.combiner.GenericCombinerPerformanceModel.electricity_in1": {
+      "mean": "1018574.3089148413",
+      "units": "kW",
+      "shape": 8760,
+      "promoted_name": "combiner.electricity_in1"
+    },
+    "plant.combiner.GenericCombinerPerformanceModel.rated_electricity_production1": {
+      "mean": "3715022.501594142",
+      "units": "kW",
+      "shape": 1,
+      "promoted_name": "combiner.rated_electricity_production1"
+    },
+    "plant.combiner.GenericCombinerPerformanceModel.electricity_capacity_factor1": {
+      "mean": "0.3536563556071005",
+      "units": "unitless",
+      "shape": 30,
+      "promoted_name": "combiner.electricity_capacity_factor1"
+    },
+    "plant.combiner.GenericCombinerPerformanceModel.electricity_in2": {
+      "mean": "-18685.58075597006",
+      "units": "kW",
+      "shape": 8760,
+      "promoted_name": "combiner.electricity_in2"
+    },
+    "plant.combiner.GenericCombinerPerformanceModel.rated_electricity_production2": {
+      "mean": "1000000.0",
+      "units": "kW",
+      "shape": 1,
+      "promoted_name": "combiner.rated_electricity_production2"
+    },
+    "plant.combiner.GenericCombinerPerformanceModel.electricity_capacity_factor2": {
+      "mean": "-0.018685580755970054",
+      "units": "unitless",
+      "shape": 30,
+      "promoted_name": "combiner.electricity_capacity_factor2"
+    },
+    "plant.electrical_load_demand.GenericDemandComponent.timestep_index": {
+      "mean": "0.0",
+      "units": "n/a",
+      "shape": 1,
+      "promoted_name": "electrical_load_demand.timestep_index"
+    },
+    "plant.electrical_load_demand.GenericDemandComponent.electricity_demand": {
+      "mean": "1000000.0",
+      "units": "kW",
+      "shape": 8760,
+      "promoted_name": "electrical_load_demand.electricity_demand"
+    },
+    "plant.electrical_load_demand.GenericDemandComponent.electricity_in": {
+      "mean": "999888.7281588711",
+      "units": "kW",
+      "shape": 8760,
+      "promoted_name": "electrical_load_demand.electricity_in"
+    },
+    "plant.electricity_battery_to_combiner_cable.electricity_in": {
+      "mean": "-18685.58075597006",
+      "units": "kW",
+      "shape": 8760,
+      "promoted_name": "electricity_battery_to_combiner_cable.electricity_in"
+    },
+    "plant.electricity_combiner_to_electrical_load_demand_cable.electricity_in": {
+      "mean": "999888.7281588711",
+      "units": "kW",
+      "shape": 8760,
+      "promoted_name": "electricity_combiner_to_electrical_load_demand_cable.electricity_in"
+    },
+    "plant.electricity_natural_gas_plant_to_supply_combiner_cable.electricity_in": {
+      "mean": "72487.89203242662",
+      "units": "kW",
+      "shape": 8760,
+      "promoted_name": "electricity_natural_gas_plant_to_supply_combiner_cable.electricity_in"
+    },
+    "plant.electricity_renew_combiner_to_supply_combiner_cable.electricity_in": {
+      "mean": "946086.4168824146",
+      "units": "kW",
+      "shape": 8760,
+      "promoted_name": "electricity_renew_combiner_to_supply_combiner_cable.electricity_in"
+    },
+    "plant.electricity_solar_to_renew_combiner_cable.electricity_in": {
+      "mean": "356127.64585264336",
+      "units": "kW",
+      "shape": 8760,
+      "promoted_name": "electricity_solar_to_renew_combiner_cable.electricity_in"
+    },
+    "plant.electricity_supply_combiner_to_battery_cable.electricity_in": {
+      "mean": "1018574.3089148413",
+      "units": "kW",
+      "shape": 8760,
+      "promoted_name": "electricity_supply_combiner_to_battery_cable.electricity_in"
+    },
+    "plant.electricity_supply_combiner_to_combiner_cable.electricity_in": {
+      "mean": "1018574.3089148413",
+      "units": "kW",
+      "shape": 8760,
+      "promoted_name": "electricity_supply_combiner_to_combiner_cable.electricity_in"
+    },
+    "plant.electricity_wind_to_renew_combiner_cable.electricity_in": {
+      "mean": "589958.7710297713",
+      "units": "kW",
+      "shape": 8760,
+      "promoted_name": "electricity_wind_to_renew_combiner_cable.electricity_in"
+    },
+    "plant.finance_subgroup_electricity.adjusted_capex_opex_comp.capex_solar": {
+      "mean": "2077864222.2828112",
+      "units": "USD",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_electricity.capex_solar"
+    },
+    "plant.finance_subgroup_electricity.adjusted_capex_opex_comp.opex_solar": {
+      "mean": "29020450.031882837",
+      "units": "USD/year",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_electricity.opex_solar"
+    },
+    "plant.finance_subgroup_electricity.adjusted_capex_opex_comp.varopex_solar": {
+      "mean": "0.0",
+      "units": "USD/year",
+      "shape": 30,
+      "promoted_name": "finance_subgroup_electricity.varopex_solar"
+    },
+    "plant.finance_subgroup_electricity.adjusted_capex_opex_comp.capex_wind": {
+      "mean": "2711268000.0",
+      "units": "USD",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_electricity.capex_wind"
+    },
+    "plant.finance_subgroup_electricity.adjusted_capex_opex_comp.opex_wind": {
+      "mean": "54684000.0",
+      "units": "USD/year",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_electricity.opex_wind"
+    },
+    "plant.finance_subgroup_electricity.adjusted_capex_opex_comp.varopex_wind": {
+      "mean": "0.0",
+      "units": "USD/year",
+      "shape": 30,
+      "promoted_name": "finance_subgroup_electricity.varopex_wind"
+    },
+    "plant.finance_subgroup_electricity.adjusted_capex_opex_comp.capex_battery": {
+      "mean": "3186688073.1589494",
+      "units": "USD",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_electricity.capex_battery"
+    },
+    "plant.finance_subgroup_electricity.adjusted_capex_opex_comp.opex_battery": {
+      "mean": "79667201.82897374",
+      "units": "USD/year",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_electricity.opex_battery"
+    },
+    "plant.finance_subgroup_electricity.adjusted_capex_opex_comp.varopex_battery": {
+      "mean": "0.0",
+      "units": "USD/year",
+      "shape": 30,
+      "promoted_name": "finance_subgroup_electricity.varopex_battery"
+    },
+    "plant.finance_subgroup_electricity.adjusted_capex_opex_comp.capex_natural_gas_plant": {
+      "mean": "1250000000.0",
+      "units": "USD",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_electricity.capex_natural_gas_plant"
+    },
+    "plant.finance_subgroup_electricity.adjusted_capex_opex_comp.opex_natural_gas_plant": {
+      "mean": "17883487.26182852",
+      "units": "USD/year",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_electricity.opex_natural_gas_plant"
+    },
+    "plant.finance_subgroup_electricity.adjusted_capex_opex_comp.varopex_natural_gas_plant": {
+      "mean": "0.0",
+      "units": "USD/year",
+      "shape": 30,
+      "promoted_name": "finance_subgroup_electricity.varopex_natural_gas_plant"
+    },
+    "plant.finance_subgroup_electricity.adjusted_capex_opex_comp.capex_ng_feedstock": {
+      "mean": "0.0",
+      "units": "USD",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_electricity.capex_ng_feedstock"
+    },
+    "plant.finance_subgroup_electricity.adjusted_capex_opex_comp.opex_ng_feedstock": {
+      "mean": "0.0",
+      "units": "USD/year",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_electricity.opex_ng_feedstock"
+    },
+    "plant.finance_subgroup_electricity.adjusted_capex_opex_comp.varopex_ng_feedstock": {
+      "mean": "24362812.273606736",
+      "units": "USD/year",
+      "shape": 30,
+      "promoted_name": "finance_subgroup_electricity.varopex_ng_feedstock"
+    },
+    "plant.finance_subgroup_electricity.adjusted_capex_opex_comp.cost_year_solar": {
+      "mean": "2022",
+      "units": "n/a",
+      "shape": "n/a",
+      "promoted_name": "finance_subgroup_electricity.cost_year_solar"
+    },
+    "plant.finance_subgroup_electricity.adjusted_capex_opex_comp.cost_year_wind": {
+      "mean": "2022",
+      "units": "n/a",
+      "shape": "n/a",
+      "promoted_name": "finance_subgroup_electricity.cost_year_wind"
+    },
+    "plant.finance_subgroup_electricity.adjusted_capex_opex_comp.cost_year_battery": {
+      "mean": "2022",
+      "units": "n/a",
+      "shape": "n/a",
+      "promoted_name": "finance_subgroup_electricity.cost_year_battery"
+    },
+    "plant.finance_subgroup_electricity.adjusted_capex_opex_comp.cost_year_natural_gas_plant": {
+      "mean": "2026",
+      "units": "n/a",
+      "shape": "n/a",
+      "promoted_name": "finance_subgroup_electricity.cost_year_natural_gas_plant"
+    },
+    "plant.finance_subgroup_electricity.adjusted_capex_opex_comp.cost_year_ng_feedstock": {
+      "mean": "2026",
+      "units": "n/a",
+      "shape": "n/a",
+      "promoted_name": "finance_subgroup_electricity.cost_year_ng_feedstock"
+    },
+    "plant.finance_subgroup_electricity.electricity_finance_profast_lco.rated_electricity_production": {
+      "mean": "4715022.501594142",
+      "units": "kW",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_electricity.rated_electricity_production"
+    },
+    "plant.finance_subgroup_electricity.electricity_finance_profast_lco.capacity_factor": {
+      "mean": "0.2746870747103111",
+      "units": "unitless",
+      "shape": 30,
+      "promoted_name": "finance_subgroup_electricity.capacity_factor"
+    },
+    "plant.finance_subgroup_electricity.electricity_finance_profast_lco.capex_adjusted_solar": {
+      "mean": "2077864222.2828112",
+      "units": "USD",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_electricity.capex_adjusted_solar"
+    },
+    "plant.finance_subgroup_electricity.electricity_finance_profast_lco.opex_adjusted_solar": {
+      "mean": "29020450.031882837",
+      "units": "USD/year",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_electricity.opex_adjusted_solar"
+    },
+    "plant.finance_subgroup_electricity.electricity_finance_profast_lco.varopex_adjusted_solar": {
+      "mean": "0.0",
+      "units": "USD/year",
+      "shape": 30,
+      "promoted_name": "finance_subgroup_electricity.varopex_adjusted_solar"
+    },
+    "plant.finance_subgroup_electricity.electricity_finance_profast_lco.replacement_schedule_solar": {
+      "mean": "0.0",
+      "units": "unitless",
+      "shape": 30,
+      "promoted_name": "finance_subgroup_electricity.replacement_schedule_solar"
+    },
+    "plant.finance_subgroup_electricity.electricity_finance_profast_lco.capex_adjusted_wind": {
+      "mean": "2711268000.0",
+      "units": "USD",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_electricity.capex_adjusted_wind"
+    },
+    "plant.finance_subgroup_electricity.electricity_finance_profast_lco.opex_adjusted_wind": {
+      "mean": "54684000.0",
+      "units": "USD/year",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_electricity.opex_adjusted_wind"
+    },
+    "plant.finance_subgroup_electricity.electricity_finance_profast_lco.varopex_adjusted_wind": {
+      "mean": "0.0",
+      "units": "USD/year",
+      "shape": 30,
+      "promoted_name": "finance_subgroup_electricity.varopex_adjusted_wind"
+    },
+    "plant.finance_subgroup_electricity.electricity_finance_profast_lco.replacement_schedule_wind": {
+      "mean": "0.0",
+      "units": "unitless",
+      "shape": 30,
+      "promoted_name": "finance_subgroup_electricity.replacement_schedule_wind"
+    },
+    "plant.finance_subgroup_electricity.electricity_finance_profast_lco.capex_adjusted_battery": {
+      "mean": "3186688073.1589494",
+      "units": "USD",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_electricity.capex_adjusted_battery"
+    },
+    "plant.finance_subgroup_electricity.electricity_finance_profast_lco.opex_adjusted_battery": {
+      "mean": "79667201.82897374",
+      "units": "USD/year",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_electricity.opex_adjusted_battery"
+    },
+    "plant.finance_subgroup_electricity.electricity_finance_profast_lco.varopex_adjusted_battery": {
+      "mean": "0.0",
+      "units": "USD/year",
+      "shape": 30,
+      "promoted_name": "finance_subgroup_electricity.varopex_adjusted_battery"
+    },
+    "plant.finance_subgroup_electricity.electricity_finance_profast_lco.replacement_schedule_battery": {
+      "mean": "0.0",
+      "units": "unitless",
+      "shape": 30,
+      "promoted_name": "finance_subgroup_electricity.replacement_schedule_battery"
+    },
+    "plant.finance_subgroup_electricity.electricity_finance_profast_lco.capex_adjusted_natural_gas_plant": {
+      "mean": "1132438305.9996939",
+      "units": "USD",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_electricity.capex_adjusted_natural_gas_plant"
+    },
+    "plant.finance_subgroup_electricity.electricity_finance_profast_lco.opex_adjusted_natural_gas_plant": {
+      "mean": "16201556.816121755",
+      "units": "USD/year",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_electricity.opex_adjusted_natural_gas_plant"
+    },
+    "plant.finance_subgroup_electricity.electricity_finance_profast_lco.varopex_adjusted_natural_gas_plant": {
+      "mean": "0.0",
+      "units": "USD/year",
+      "shape": 30,
+      "promoted_name": "finance_subgroup_electricity.varopex_adjusted_natural_gas_plant"
+    },
+    "plant.finance_subgroup_electricity.electricity_finance_profast_lco.replacement_schedule_natural_gas_plant": {
+      "mean": "0.0",
+      "units": "unitless",
+      "shape": 30,
+      "promoted_name": "finance_subgroup_electricity.replacement_schedule_natural_gas_plant"
+    },
+    "plant.finance_subgroup_electricity.electricity_finance_profast_lco.capex_adjusted_ng_feedstock": {
+      "mean": "0.0",
+      "units": "USD",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_electricity.capex_adjusted_ng_feedstock"
+    },
+    "plant.finance_subgroup_electricity.electricity_finance_profast_lco.opex_adjusted_ng_feedstock": {
+      "mean": "0.0",
+      "units": "USD/year",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_electricity.opex_adjusted_ng_feedstock"
+    },
+    "plant.finance_subgroup_electricity.electricity_finance_profast_lco.varopex_adjusted_ng_feedstock": {
+      "mean": "22071505.488409404",
+      "units": "USD/year",
+      "shape": 30,
+      "promoted_name": "finance_subgroup_electricity.varopex_adjusted_ng_feedstock"
+    },
+    "plant.finance_subgroup_electricity.electricity_finance_profast_lco.replacement_schedule_ng_feedstock": {
+      "mean": "0.0",
+      "units": "unitless",
+      "shape": 30,
+      "promoted_name": "finance_subgroup_electricity.replacement_schedule_ng_feedstock"
+    },
+    "plant.finance_subgroup_electricity.electricity_finance_profast_lco.skip_compute": {
+      "mean": "False",
+      "units": "n/a",
+      "shape": "n/a",
+      "promoted_name": "finance_subgroup_electricity.skip_compute"
+    },
+    "plant.finance_subgroup_natural_gas.adjusted_capex_opex_comp.capex_natural_gas_plant": {
+      "mean": "1250000000.0",
+      "units": "USD",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_natural_gas.capex_natural_gas_plant"
+    },
+    "plant.finance_subgroup_natural_gas.adjusted_capex_opex_comp.opex_natural_gas_plant": {
+      "mean": "17883487.26182852",
+      "units": "USD/year",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_natural_gas.opex_natural_gas_plant"
+    },
+    "plant.finance_subgroup_natural_gas.adjusted_capex_opex_comp.varopex_natural_gas_plant": {
+      "mean": "0.0",
+      "units": "USD/year",
+      "shape": 30,
+      "promoted_name": "finance_subgroup_natural_gas.varopex_natural_gas_plant"
+    },
+    "plant.finance_subgroup_natural_gas.adjusted_capex_opex_comp.capex_ng_feedstock": {
+      "mean": "0.0",
+      "units": "USD",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_natural_gas.capex_ng_feedstock"
+    },
+    "plant.finance_subgroup_natural_gas.adjusted_capex_opex_comp.opex_ng_feedstock": {
+      "mean": "0.0",
+      "units": "USD/year",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_natural_gas.opex_ng_feedstock"
+    },
+    "plant.finance_subgroup_natural_gas.adjusted_capex_opex_comp.varopex_ng_feedstock": {
+      "mean": "24362812.273606736",
+      "units": "USD/year",
+      "shape": 30,
+      "promoted_name": "finance_subgroup_natural_gas.varopex_ng_feedstock"
+    },
+    "plant.finance_subgroup_natural_gas.adjusted_capex_opex_comp.cost_year_natural_gas_plant": {
+      "mean": "2026",
+      "units": "n/a",
+      "shape": "n/a",
+      "promoted_name": "finance_subgroup_natural_gas.cost_year_natural_gas_plant"
+    },
+    "plant.finance_subgroup_natural_gas.adjusted_capex_opex_comp.cost_year_ng_feedstock": {
+      "mean": "2026",
+      "units": "n/a",
+      "shape": "n/a",
+      "promoted_name": "finance_subgroup_natural_gas.cost_year_ng_feedstock"
+    },
+    "plant.finance_subgroup_natural_gas.electricity_finance_profast_lco.rated_electricity_production": {
+      "mean": "500.0",
+      "units": "MW",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_natural_gas.rated_electricity_production"
+    },
+    "plant.finance_subgroup_natural_gas.electricity_finance_profast_npv.rated_electricity_production": {
+      "mean": "500.0",
+      "units": "MW",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_natural_gas.rated_electricity_production"
+    },
+    "plant.finance_subgroup_natural_gas.electricity_finance_profast_lco.capacity_factor": {
+      "mean": "0.14497578406485323",
+      "units": "unitless",
+      "shape": 30,
+      "promoted_name": "finance_subgroup_natural_gas.capacity_factor"
+    },
+    "plant.finance_subgroup_natural_gas.electricity_finance_profast_npv.capacity_factor": {
+      "mean": "0.14497578406485323",
+      "units": "unitless",
+      "shape": 30,
+      "promoted_name": "finance_subgroup_natural_gas.capacity_factor"
+    },
+    "plant.finance_subgroup_natural_gas.electricity_finance_profast_lco.capex_adjusted_natural_gas_plant": {
+      "mean": "1132438305.9996939",
+      "units": "USD",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_natural_gas.capex_adjusted_natural_gas_plant"
+    },
+    "plant.finance_subgroup_natural_gas.electricity_finance_profast_npv.capex_adjusted_natural_gas_plant": {
+      "mean": "1132438305.9996939",
+      "units": "USD",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_natural_gas.capex_adjusted_natural_gas_plant"
+    },
+    "plant.finance_subgroup_natural_gas.electricity_finance_profast_lco.opex_adjusted_natural_gas_plant": {
+      "mean": "16201556.816121755",
+      "units": "USD/year",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_natural_gas.opex_adjusted_natural_gas_plant"
+    },
+    "plant.finance_subgroup_natural_gas.electricity_finance_profast_npv.opex_adjusted_natural_gas_plant": {
+      "mean": "16201556.816121755",
+      "units": "USD/year",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_natural_gas.opex_adjusted_natural_gas_plant"
+    },
+    "plant.finance_subgroup_natural_gas.electricity_finance_profast_lco.varopex_adjusted_natural_gas_plant": {
+      "mean": "0.0",
+      "units": "USD/year",
+      "shape": 30,
+      "promoted_name": "finance_subgroup_natural_gas.varopex_adjusted_natural_gas_plant"
+    },
+    "plant.finance_subgroup_natural_gas.electricity_finance_profast_npv.varopex_adjusted_natural_gas_plant": {
+      "mean": "0.0",
+      "units": "USD/year",
+      "shape": 30,
+      "promoted_name": "finance_subgroup_natural_gas.varopex_adjusted_natural_gas_plant"
+    },
+    "plant.finance_subgroup_natural_gas.electricity_finance_profast_lco.replacement_schedule_natural_gas_plant": {
+      "mean": "0.0",
+      "units": "unitless",
+      "shape": 30,
+      "promoted_name": "finance_subgroup_natural_gas.replacement_schedule_natural_gas_plant"
+    },
+    "plant.finance_subgroup_natural_gas.electricity_finance_profast_npv.replacement_schedule_natural_gas_plant": {
+      "mean": "0.0",
+      "units": "unitless",
+      "shape": 30,
+      "promoted_name": "finance_subgroup_natural_gas.replacement_schedule_natural_gas_plant"
+    },
+    "plant.finance_subgroup_natural_gas.electricity_finance_profast_lco.capex_adjusted_ng_feedstock": {
+      "mean": "0.0",
+      "units": "USD",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_natural_gas.capex_adjusted_ng_feedstock"
+    },
+    "plant.finance_subgroup_natural_gas.electricity_finance_profast_npv.capex_adjusted_ng_feedstock": {
+      "mean": "0.0",
+      "units": "USD",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_natural_gas.capex_adjusted_ng_feedstock"
+    },
+    "plant.finance_subgroup_natural_gas.electricity_finance_profast_lco.opex_adjusted_ng_feedstock": {
+      "mean": "0.0",
+      "units": "USD/year",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_natural_gas.opex_adjusted_ng_feedstock"
+    },
+    "plant.finance_subgroup_natural_gas.electricity_finance_profast_npv.opex_adjusted_ng_feedstock": {
+      "mean": "0.0",
+      "units": "USD/year",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_natural_gas.opex_adjusted_ng_feedstock"
+    },
+    "plant.finance_subgroup_natural_gas.electricity_finance_profast_lco.varopex_adjusted_ng_feedstock": {
+      "mean": "22071505.488409404",
+      "units": "USD/year",
+      "shape": 30,
+      "promoted_name": "finance_subgroup_natural_gas.varopex_adjusted_ng_feedstock"
+    },
+    "plant.finance_subgroup_natural_gas.electricity_finance_profast_npv.varopex_adjusted_ng_feedstock": {
+      "mean": "22071505.488409404",
+      "units": "USD/year",
+      "shape": 30,
+      "promoted_name": "finance_subgroup_natural_gas.varopex_adjusted_ng_feedstock"
+    },
+    "plant.finance_subgroup_natural_gas.electricity_finance_profast_lco.replacement_schedule_ng_feedstock": {
+      "mean": "0.0",
+      "units": "unitless",
+      "shape": 30,
+      "promoted_name": "finance_subgroup_natural_gas.replacement_schedule_ng_feedstock"
+    },
+    "plant.finance_subgroup_natural_gas.electricity_finance_profast_npv.replacement_schedule_ng_feedstock": {
+      "mean": "0.0",
+      "units": "unitless",
+      "shape": 30,
+      "promoted_name": "finance_subgroup_natural_gas.replacement_schedule_ng_feedstock"
+    },
+    "plant.finance_subgroup_natural_gas.electricity_finance_profast_lco.skip_compute": {
+      "mean": "False",
+      "units": "n/a",
+      "shape": "n/a",
+      "promoted_name": "finance_subgroup_natural_gas.skip_compute"
+    },
+    "plant.finance_subgroup_natural_gas.electricity_finance_profast_npv.skip_compute": {
+      "mean": "False",
+      "units": "n/a",
+      "shape": "n/a",
+      "promoted_name": "finance_subgroup_natural_gas.skip_compute"
+    },
+    "plant.finance_subgroup_natural_gas.electricity_finance_profast_npv.sell_price_electricity__profast_npv": {
+      "mean": "0.0",
+      "units": "USD/kW/h",
+      "shape": 30,
+      "promoted_name": "finance_subgroup_natural_gas.sell_price_electricity__profast_npv"
+    },
+    "plant.finance_subgroup_renewable_generation.adjusted_capex_opex_comp.capex_solar": {
+      "mean": "2077864222.2828112",
+      "units": "USD",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_renewable_generation.capex_solar"
+    },
+    "plant.finance_subgroup_renewable_generation.adjusted_capex_opex_comp.opex_solar": {
+      "mean": "29020450.031882837",
+      "units": "USD/year",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_renewable_generation.opex_solar"
+    },
+    "plant.finance_subgroup_renewable_generation.adjusted_capex_opex_comp.varopex_solar": {
+      "mean": "0.0",
+      "units": "USD/year",
+      "shape": 30,
+      "promoted_name": "finance_subgroup_renewable_generation.varopex_solar"
+    },
+    "plant.finance_subgroup_renewable_generation.adjusted_capex_opex_comp.capex_wind": {
+      "mean": "2711268000.0",
+      "units": "USD",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_renewable_generation.capex_wind"
+    },
+    "plant.finance_subgroup_renewable_generation.adjusted_capex_opex_comp.opex_wind": {
+      "mean": "54684000.0",
+      "units": "USD/year",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_renewable_generation.opex_wind"
+    },
+    "plant.finance_subgroup_renewable_generation.adjusted_capex_opex_comp.varopex_wind": {
+      "mean": "0.0",
+      "units": "USD/year",
+      "shape": 30,
+      "promoted_name": "finance_subgroup_renewable_generation.varopex_wind"
+    },
+    "plant.finance_subgroup_renewable_generation.adjusted_capex_opex_comp.cost_year_solar": {
+      "mean": "2022",
+      "units": "n/a",
+      "shape": "n/a",
+      "promoted_name": "finance_subgroup_renewable_generation.cost_year_solar"
+    },
+    "plant.finance_subgroup_renewable_generation.adjusted_capex_opex_comp.cost_year_wind": {
+      "mean": "2022",
+      "units": "n/a",
+      "shape": "n/a",
+      "promoted_name": "finance_subgroup_renewable_generation.cost_year_wind"
+    },
+    "plant.finance_subgroup_renewable_generation.electricity_finance_profast_lco.rated_electricity_production": {
+      "mean": "3215022.501594142",
+      "units": "kW",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_renewable_generation.rated_electricity_production"
+    },
+    "plant.finance_subgroup_renewable_generation.electricity_finance_profast_npv.rated_electricity_production": {
+      "mean": "3215022.501594142",
+      "units": "kW",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_renewable_generation.rated_electricity_production"
+    },
+    "plant.finance_subgroup_renewable_generation.electricity_finance_profast_lco.capacity_factor": {
+      "mean": "0.38611033865679545",
+      "units": "unitless",
+      "shape": 30,
+      "promoted_name": "finance_subgroup_renewable_generation.capacity_factor"
+    },
+    "plant.finance_subgroup_renewable_generation.electricity_finance_profast_npv.capacity_factor": {
+      "mean": "0.38611033865679545",
+      "units": "unitless",
+      "shape": 30,
+      "promoted_name": "finance_subgroup_renewable_generation.capacity_factor"
+    },
+    "plant.finance_subgroup_renewable_generation.electricity_finance_profast_lco.capex_adjusted_solar": {
+      "mean": "2077864222.2828112",
+      "units": "USD",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_renewable_generation.capex_adjusted_solar"
+    },
+    "plant.finance_subgroup_renewable_generation.electricity_finance_profast_npv.capex_adjusted_solar": {
+      "mean": "2077864222.2828112",
+      "units": "USD",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_renewable_generation.capex_adjusted_solar"
+    },
+    "plant.finance_subgroup_renewable_generation.electricity_finance_profast_lco.opex_adjusted_solar": {
+      "mean": "29020450.031882837",
+      "units": "USD/year",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_renewable_generation.opex_adjusted_solar"
+    },
+    "plant.finance_subgroup_renewable_generation.electricity_finance_profast_npv.opex_adjusted_solar": {
+      "mean": "29020450.031882837",
+      "units": "USD/year",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_renewable_generation.opex_adjusted_solar"
+    },
+    "plant.finance_subgroup_renewable_generation.electricity_finance_profast_lco.varopex_adjusted_solar": {
+      "mean": "0.0",
+      "units": "USD/year",
+      "shape": 30,
+      "promoted_name": "finance_subgroup_renewable_generation.varopex_adjusted_solar"
+    },
+    "plant.finance_subgroup_renewable_generation.electricity_finance_profast_npv.varopex_adjusted_solar": {
+      "mean": "0.0",
+      "units": "USD/year",
+      "shape": 30,
+      "promoted_name": "finance_subgroup_renewable_generation.varopex_adjusted_solar"
+    },
+    "plant.finance_subgroup_renewable_generation.electricity_finance_profast_lco.replacement_schedule_solar": {
+      "mean": "0.0",
+      "units": "unitless",
+      "shape": 30,
+      "promoted_name": "finance_subgroup_renewable_generation.replacement_schedule_solar"
+    },
+    "plant.finance_subgroup_renewable_generation.electricity_finance_profast_npv.replacement_schedule_solar": {
+      "mean": "0.0",
+      "units": "unitless",
+      "shape": 30,
+      "promoted_name": "finance_subgroup_renewable_generation.replacement_schedule_solar"
+    },
+    "plant.finance_subgroup_renewable_generation.electricity_finance_profast_lco.capex_adjusted_wind": {
+      "mean": "2711268000.0",
+      "units": "USD",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_renewable_generation.capex_adjusted_wind"
+    },
+    "plant.finance_subgroup_renewable_generation.electricity_finance_profast_npv.capex_adjusted_wind": {
+      "mean": "2711268000.0",
+      "units": "USD",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_renewable_generation.capex_adjusted_wind"
+    },
+    "plant.finance_subgroup_renewable_generation.electricity_finance_profast_lco.opex_adjusted_wind": {
+      "mean": "54684000.0",
+      "units": "USD/year",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_renewable_generation.opex_adjusted_wind"
+    },
+    "plant.finance_subgroup_renewable_generation.electricity_finance_profast_npv.opex_adjusted_wind": {
+      "mean": "54684000.0",
+      "units": "USD/year",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_renewable_generation.opex_adjusted_wind"
+    },
+    "plant.finance_subgroup_renewable_generation.electricity_finance_profast_lco.varopex_adjusted_wind": {
+      "mean": "0.0",
+      "units": "USD/year",
+      "shape": 30,
+      "promoted_name": "finance_subgroup_renewable_generation.varopex_adjusted_wind"
+    },
+    "plant.finance_subgroup_renewable_generation.electricity_finance_profast_npv.varopex_adjusted_wind": {
+      "mean": "0.0",
+      "units": "USD/year",
+      "shape": 30,
+      "promoted_name": "finance_subgroup_renewable_generation.varopex_adjusted_wind"
+    },
+    "plant.finance_subgroup_renewable_generation.electricity_finance_profast_lco.replacement_schedule_wind": {
+      "mean": "0.0",
+      "units": "unitless",
+      "shape": 30,
+      "promoted_name": "finance_subgroup_renewable_generation.replacement_schedule_wind"
+    },
+    "plant.finance_subgroup_renewable_generation.electricity_finance_profast_npv.replacement_schedule_wind": {
+      "mean": "0.0",
+      "units": "unitless",
+      "shape": 30,
+      "promoted_name": "finance_subgroup_renewable_generation.replacement_schedule_wind"
+    },
+    "plant.finance_subgroup_renewable_generation.electricity_finance_profast_lco.skip_compute": {
+      "mean": "False",
+      "units": "n/a",
+      "shape": "n/a",
+      "promoted_name": "finance_subgroup_renewable_generation.skip_compute"
+    },
+    "plant.finance_subgroup_renewable_generation.electricity_finance_profast_npv.skip_compute": {
+      "mean": "False",
+      "units": "n/a",
+      "shape": "n/a",
+      "promoted_name": "finance_subgroup_renewable_generation.skip_compute"
+    },
+    "plant.finance_subgroup_renewable_generation.electricity_finance_profast_npv.sell_price_electricity__profast_npv": {
+      "mean": "0.0",
+      "units": "USD/kW/h",
+      "shape": 30,
+      "promoted_name": "finance_subgroup_renewable_generation.sell_price_electricity__profast_npv"
+    },
+    "plant.natural_gas_ng_feedstock_to_natural_gas_plant_pipe.natural_gas_in": {
+      "mean": "7500.0",
+      "units": "MMBtu/h",
+      "shape": 8760,
+      "promoted_name": "natural_gas_ng_feedstock_to_natural_gas_plant_pipe.natural_gas_in"
+    },
+    "plant.natural_gas_plant.NaturalGasCostModel.rated_electricity_production": {
+      "mean": "500.0",
+      "units": "MW",
+      "shape": 1,
+      "promoted_name": "natural_gas_plant.rated_electricity_production"
+    },
+    "plant.natural_gas_plant.NaturalGasCostModel.electricity_out": {
+      "mean": "72.48789203242663",
+      "units": "MW",
+      "shape": 8760,
+      "promoted_name": "natural_gas_plant.electricity_out"
+    },
+    "plant.natural_gas_plant.NaturalGasCostModel.capex_per_kw": {
+      "mean": "2500.0",
+      "units": "USD/kW",
+      "shape": 1,
+      "promoted_name": "natural_gas_plant.capex_per_kw"
+    },
+    "plant.natural_gas_plant.NaturalGasCostModel.fixed_opex_per_kw_per_year": {
+      "mean": "33.1",
+      "units": "USD/kW/year",
+      "shape": 1,
+      "promoted_name": "natural_gas_plant.fixed_opex_per_kw_per_year"
+    },
+    "plant.natural_gas_plant.NaturalGasCostModel.variable_opex_per_mwh": {
+      "mean": "2.1",
+      "units": "USD/MW/h",
+      "shape": 1,
+      "promoted_name": "natural_gas_plant.variable_opex_per_mwh"
+    },
+    "plant.natural_gas_plant.NaturalGasCostModel.skip_compute": {
+      "mean": "False",
+      "units": "n/a",
+      "shape": "n/a",
+      "promoted_name": "natural_gas_plant.skip_compute"
+    },
+    "plant.natural_gas_plant.NaturalGasPerformanceModel.timestep_index": {
+      "mean": "0.0",
+      "units": "n/a",
+      "shape": 1,
+      "promoted_name": "natural_gas_plant.timestep_index"
+    },
+    "plant.natural_gas_plant.controller.timestep_index": {
+      "mean": "0.0",
+      "units": "n/a",
+      "shape": 1,
+      "promoted_name": "natural_gas_plant.timestep_index"
+    },
+    "plant.natural_gas_plant.NaturalGasPerformanceModel.heat_rate_mmbtu_per_mwh": {
+      "mean": "6.3",
+      "units": "MMBtu/MW/h",
+      "shape": 1,
+      "promoted_name": "natural_gas_plant.heat_rate_mmbtu_per_mwh"
+    },
+    "plant.natural_gas_plant.NaturalGasPerformanceModel.system_capacity": {
+      "mean": "500.0",
+      "units": "MW",
+      "shape": 1,
+      "promoted_name": "natural_gas_plant.system_capacity"
+    },
+    "plant.natural_gas_plant.NaturalGasPerformanceModel.electricity_command_value": {
+      "mean": "72.48789203242663",
+      "units": "MW",
+      "shape": 8760,
+      "promoted_name": "natural_gas_plant.electricity_command_value"
+    },
+    "plant.natural_gas_plant.NaturalGasPerformanceModel.natural_gas_in": {
+      "mean": "7500.0",
+      "units": "MMBtu/h",
+      "shape": 8760,
+      "promoted_name": "natural_gas_plant.natural_gas_in"
+    },
+    "plant.natural_gas_plant.controller.electricity_set_point": {
+      "mean": "72.48789203242663",
+      "units": "MW",
+      "shape": 8760,
+      "promoted_name": "natural_gas_plant.electricity_set_point"
+    },
+    "plant.ng_feedstock.natural_gas_consumed": {
+      "mean": "456.6737198042877",
+      "units": "MMBtu/h",
+      "shape": 8760,
+      "promoted_name": "ng_feedstock.natural_gas_consumed"
+    },
+    "plant.ng_feedstock.natural_gas_out": {
+      "mean": "7500.0",
+      "units": "MMBtu/h",
+      "shape": 8760,
+      "promoted_name": "ng_feedstock.natural_gas_out"
+    },
+    "plant.ng_feedstock.price": {
+      "mean": "6.09",
+      "units": "USD/MMBtu",
+      "shape": 1,
+      "promoted_name": "ng_feedstock.price"
+    },
+    "plant.ng_feedstock.skip_compute": {
+      "mean": "False",
+      "units": "n/a",
+      "shape": "n/a",
+      "promoted_name": "ng_feedstock.skip_compute"
+    },
+    "plant.ng_feedstock_source.natural_gas_capacity": {
+      "mean": "7500.0",
+      "units": "MMBtu/h",
+      "shape": 1,
+      "promoted_name": "ng_feedstock_source.natural_gas_capacity"
+    },
+    "plant.renew_combiner.GenericCombinerPerformanceModel.electricity_in1": {
+      "mean": "356127.64585264336",
+      "units": "kW",
+      "shape": 8760,
+      "promoted_name": "renew_combiner.electricity_in1"
+    },
+    "plant.renew_combiner.GenericCombinerPerformanceModel.rated_electricity_production1": {
+      "mean": "1451022.5015941418",
+      "units": "kW",
+      "shape": 1,
+      "promoted_name": "renew_combiner.rated_electricity_production1"
+    },
+    "plant.renew_combiner.GenericCombinerPerformanceModel.electricity_capacity_factor1": {
+      "mean": "0.3450600751165961",
+      "units": "unitless",
+      "shape": 30,
+      "promoted_name": "renew_combiner.electricity_capacity_factor1"
+    },
+    "plant.renew_combiner.GenericCombinerPerformanceModel.electricity_in2": {
+      "mean": "589958.7710297713",
+      "units": "kW",
+      "shape": 8760,
+      "promoted_name": "renew_combiner.electricity_in2"
+    },
+    "plant.renew_combiner.GenericCombinerPerformanceModel.rated_electricity_production2": {
+      "mean": "1764000.0",
+      "units": "kW",
+      "shape": 1,
+      "promoted_name": "renew_combiner.rated_electricity_production2"
+    },
+    "plant.renew_combiner.GenericCombinerPerformanceModel.electricity_capacity_factor2": {
+      "mean": "0.41987726387969704",
+      "units": "unitless",
+      "shape": 30,
+      "promoted_name": "renew_combiner.electricity_capacity_factor2"
+    },
+    "plant.solar.ATBUtilityPVCostModel.system_capacity_AC": {
+      "mean": "1451022.5015941418",
+      "units": "kW",
+      "shape": 1,
+      "promoted_name": "solar.system_capacity_AC"
+    },
+    "plant.solar.ATBUtilityPVCostModel.skip_compute": {
+      "mean": "False",
+      "units": "n/a",
+      "shape": "n/a",
+      "promoted_name": "solar.skip_compute"
+    },
+    "plant.solar.PYSAMSolarPlantPerformanceModel.timestep_index": {
+      "mean": "0.0",
+      "units": "n/a",
+      "shape": 1,
+      "promoted_name": "solar.timestep_index"
+    },
+    "plant.solar.controller.timestep_index": {
+      "mean": "0.0",
+      "units": "n/a",
+      "shape": 1,
+      "promoted_name": "solar.timestep_index"
+    },
+    "plant.solar.PYSAMSolarPlantPerformanceModel.electricity_command_value": {
+      "mean": "356127.64585264336",
+      "units": "kW",
+      "shape": 8760,
+      "promoted_name": "solar.electricity_command_value"
+    },
+    "plant.solar.PYSAMSolarPlantPerformanceModel.system_capacity_DC": {
+      "mean": "1944370.15213615",
+      "units": "kW",
+      "shape": 1,
+      "promoted_name": "solar.system_capacity_DC"
+    },
+    "plant.solar.controller.electricity_set_point": {
+      "mean": "356127.64585264336",
+      "units": "kW",
+      "shape": 8760,
+      "promoted_name": "solar.electricity_set_point"
+    },
+    "plant.supply_combiner.GenericCombinerPerformanceModel.electricity_in1": {
+      "mean": "946086.4168824146",
+      "units": "kW",
+      "shape": 8760,
+      "promoted_name": "supply_combiner.electricity_in1"
+    },
+    "plant.supply_combiner.GenericCombinerPerformanceModel.rated_electricity_production1": {
+      "mean": "3215022.501594142",
+      "units": "kW",
+      "shape": 1,
+      "promoted_name": "supply_combiner.rated_electricity_production1"
+    },
+    "plant.supply_combiner.GenericCombinerPerformanceModel.electricity_capacity_factor1": {
+      "mean": "0.38611033865679545",
+      "units": "unitless",
+      "shape": 30,
+      "promoted_name": "supply_combiner.electricity_capacity_factor1"
+    },
+    "plant.supply_combiner.GenericCombinerPerformanceModel.electricity_in2": {
+      "mean": "72487.89203242662",
+      "units": "kW",
+      "shape": 8760,
+      "promoted_name": "supply_combiner.electricity_in2"
+    },
+    "plant.supply_combiner.GenericCombinerPerformanceModel.rated_electricity_production2": {
+      "mean": "500000.0",
+      "units": "kW",
+      "shape": 1,
+      "promoted_name": "supply_combiner.rated_electricity_production2"
+    },
+    "plant.supply_combiner.GenericCombinerPerformanceModel.electricity_capacity_factor2": {
+      "mean": "0.14497578406485323",
+      "units": "unitless",
+      "shape": 30,
+      "promoted_name": "supply_combiner.electricity_capacity_factor2"
+    },
+    "plant.system_level_controller.timestep_index": {
+      "mean": "0.0",
+      "units": "n/a",
+      "shape": 1,
+      "promoted_name": "system_level_controller.timestep_index"
+    },
+    "plant.system_level_controller.electricity_demand": {
+      "mean": "1000000.0",
+      "units": "kW",
+      "shape": 8760,
+      "promoted_name": "system_level_controller.electricity_demand"
+    },
+    "plant.system_level_controller.wind_electricity_out": {
+      "mean": "589958.7710297713",
+      "units": "kW",
+      "shape": 8760,
+      "promoted_name": "system_level_controller.wind_electricity_out"
+    },
+    "plant.system_level_controller.wind_rated_electricity_production": {
+      "mean": "1764000.0",
+      "units": "kW",
+      "shape": 1,
+      "promoted_name": "system_level_controller.wind_rated_electricity_production"
+    },
+    "plant.system_level_controller.solar_electricity_out": {
+      "mean": "356127.64585264336",
+      "units": "kW",
+      "shape": 8760,
+      "promoted_name": "system_level_controller.solar_electricity_out"
+    },
+    "plant.system_level_controller.solar_rated_electricity_production": {
+      "mean": "1451022.5015941418",
+      "units": "kW",
+      "shape": 1,
+      "promoted_name": "system_level_controller.solar_rated_electricity_production"
+    },
+    "plant.system_level_controller.natural_gas_plant_electricity_out": {
+      "mean": "72487.89203242662",
+      "units": "kW",
+      "shape": 8760,
+      "promoted_name": "system_level_controller.natural_gas_plant_electricity_out"
+    },
+    "plant.system_level_controller.natural_gas_plant_rated_electricity_production": {
+      "mean": "500000.0",
+      "units": "kW",
+      "shape": 1,
+      "promoted_name": "system_level_controller.natural_gas_plant_rated_electricity_production"
+    },
+    "plant.system_level_controller.battery_electricity_out": {
+      "mean": "-18685.58075597006",
+      "units": "kW",
+      "shape": 8760,
+      "promoted_name": "system_level_controller.battery_electricity_out"
+    },
+    "plant.system_level_controller.battery_rated_electricity_production": {
+      "mean": "1000000.0",
+      "units": "kW",
+      "shape": 1,
+      "promoted_name": "system_level_controller.battery_rated_electricity_production"
+    },
+    "plant.system_level_controller.battery_electricity_storage_duration": {
+      "mean": "9.679084421410604",
+      "units": "h",
+      "shape": 1,
+      "promoted_name": "system_level_controller.battery_electricity_storage_duration"
+    },
+    "plant.system_level_controller.ng_feedstock_natural_gas_out": {
+      "mean": "7500.0",
+      "units": "MMBtu/h",
+      "shape": 8760,
+      "promoted_name": "system_level_controller.ng_feedstock_natural_gas_out"
+    },
+    "plant.system_level_controller.battery_SOC": {
+      "mean": "0.3070760101523163",
+      "units": "unitless",
+      "shape": 8760,
+      "promoted_name": "system_level_controller.battery_SOC"
+    },
+    "plant.wind.ATBWindPlantCostModel.rated_electricity_production": {
+      "mean": "1764000.0",
+      "units": "kW",
+      "shape": 1,
+      "promoted_name": "wind.rated_electricity_production"
+    },
+    "plant.wind.ATBWindPlantCostModel.skip_compute": {
+      "mean": "False",
+      "units": "n/a",
+      "shape": "n/a",
+      "promoted_name": "wind.skip_compute"
+    },
+    "plant.wind.PYSAMWindPlantPerformanceModel.timestep_index": {
+      "mean": "0.0",
+      "units": "n/a",
+      "shape": 1,
+      "promoted_name": "wind.timestep_index"
+    },
+    "plant.wind.controller.timestep_index": {
+      "mean": "0.0",
+      "units": "n/a",
+      "shape": 1,
+      "promoted_name": "wind.timestep_index"
+    },
+    "plant.wind.PYSAMWindPlantPerformanceModel.electricity_command_value": {
+      "mean": "589958.7710297713",
+      "units": "kW",
+      "shape": 8760,
+      "promoted_name": "wind.electricity_command_value"
+    },
+    "plant.wind.PYSAMWindPlantPerformanceModel.num_turbines": {
+      "mean": "294.0",
+      "units": "unitless",
+      "shape": 1,
+      "promoted_name": "wind.num_turbines"
+    },
+    "plant.wind.PYSAMWindPlantPerformanceModel.wind_turbine_rating": {
+      "mean": "6000.0",
+      "units": "kW",
+      "shape": 1,
+      "promoted_name": "wind.wind_turbine_rating"
+    },
+    "plant.wind.PYSAMWindPlantPerformanceModel.rotor_diameter": {
+      "mean": "170.0",
+      "units": "m",
+      "shape": 1,
+      "promoted_name": "wind.rotor_diameter"
+    },
+    "plant.wind.PYSAMWindPlantPerformanceModel.hub_height": {
+      "mean": "115.0",
+      "units": "m",
+      "shape": 1,
+      "promoted_name": "wind.hub_height"
+    },
+    "plant.wind.controller.electricity_set_point": {
+      "mean": "589958.7710297713",
+      "units": "kW",
+      "shape": 8760,
+      "promoted_name": "wind.electricity_set_point"
+    },
+    "site.solar_resource.latitude": {
+      "mean": "34.382308",
+      "units": "deg",
+      "shape": 1,
+      "promoted_name": "site.latitude"
+    },
+    "site.wind_resource.latitude": {
+      "mean": "34.382308",
+      "units": "deg",
+      "shape": 1,
+      "promoted_name": "site.latitude"
+    },
+    "site.solar_resource.longitude": {
+      "mean": "-101.816607",
+      "units": "deg",
+      "shape": 1,
+      "promoted_name": "site.longitude"
+    },
+    "site.wind_resource.longitude": {
+      "mean": "-101.816607",
+      "units": "deg",
+      "shape": 1,
+      "promoted_name": "site.longitude"
+    }
+  },
+  "explicit_outputs": {
+    "plant.battery.ATBBatteryCostModel.CapEx": {
+      "mean": "3186688073.1589494",
+      "units": "USD",
+      "shape": 1,
+      "promoted_name": "battery.CapEx"
+    },
+    "plant.battery.ATBBatteryCostModel.OpEx": {
+      "mean": "79667201.82897374",
+      "units": "USD/year",
+      "shape": 1,
+      "promoted_name": "battery.OpEx"
+    },
+    "plant.battery.ATBBatteryCostModel.VarOpEx": {
+      "mean": "0.0",
+      "units": "USD/year",
+      "shape": 30,
+      "promoted_name": "battery.VarOpEx"
+    },
+    "plant.battery.ATBBatteryCostModel.marginal_cost": {
+      "mean": "0.0",
+      "units": "USD/kW/h",
+      "shape": 1,
+      "promoted_name": "battery.marginal_cost"
+    },
+    "plant.battery.ATBBatteryCostModel.cost_year": {
+      "mean": "2022",
+      "units": "n/a",
+      "shape": "n/a",
+      "promoted_name": "battery.cost_year"
+    },
+    "plant.battery.SimpleStorageOpenLoopController.electricity_command_value": {
+      "mean": "-19299.713588469865",
+      "units": "kW",
+      "shape": 8760,
+      "promoted_name": "battery.electricity_command_value"
+    },
+    "plant.battery.StoragePerformanceModel.electricity_out": {
+      "mean": "-18685.58075597006",
+      "units": "kW",
+      "shape": 8760,
+      "promoted_name": "battery.electricity_out"
+    },
+    "plant.battery.StoragePerformanceModel.total_electricity_produced": {
+      "mean": "-163685687.42229772",
+      "units": "kW*h",
+      "shape": 1,
+      "promoted_name": "battery.total_electricity_produced"
+    },
+    "plant.battery.StoragePerformanceModel.annual_electricity_produced": {
+      "mean": "-163685687.42229766",
+      "units": "kW*h/year",
+      "shape": 30,
+      "promoted_name": "battery.annual_electricity_produced"
+    },
+    "plant.battery.StoragePerformanceModel.replacement_schedule": {
+      "mean": "0.0",
+      "units": "unitless",
+      "shape": 30,
+      "promoted_name": "battery.replacement_schedule"
+    },
+    "plant.battery.StoragePerformanceModel.capacity_factor": {
+      "mean": "-0.018685580755970054",
+      "units": "unitless",
+      "shape": 30,
+      "promoted_name": "battery.capacity_factor"
+    },
+    "plant.battery.StoragePerformanceModel.rated_electricity_production": {
+      "mean": "1000000.0",
+      "units": "kW",
+      "shape": 1,
+      "promoted_name": "battery.rated_electricity_production"
+    },
+    "plant.battery.StoragePerformanceModel.operational_life": {
+      "mean": "30.0",
+      "units": "year",
+      "shape": 1,
+      "promoted_name": "battery.operational_life"
+    },
+    "plant.battery.StoragePerformanceModel.storage_duration": {
+      "mean": "9.679084421410604",
+      "units": "h",
+      "shape": 1,
+      "promoted_name": "battery.storage_duration"
+    },
+    "plant.battery.StoragePerformanceModel.SOC": {
+      "mean": "30.707601015231628",
+      "units": "percent",
+      "shape": 8760,
+      "promoted_name": "battery.SOC"
+    },
+    "plant.battery.StoragePerformanceModel.storage_electricity_discharge": {
+      "mean": "170790.77067673646",
+      "units": "kW",
+      "shape": 8760,
+      "promoted_name": "battery.storage_electricity_discharge"
+    },
+    "plant.battery.StoragePerformanceModel.storage_electricity_charge": {
+      "mean": "-189476.3514327065",
+      "units": "kW",
+      "shape": 8760,
+      "promoted_name": "battery.storage_electricity_charge"
+    },
+    "plant.battery.StoragePerformanceModel.standard_capacity_factor": {
+      "mean": "0.17079077067673654",
+      "units": "unitless",
+      "shape": 30,
+      "promoted_name": "battery.standard_capacity_factor"
+    },
+    "plant.battery.StoragePerformanceModel.electricity_headroom_out": {
+      "mean": "657022.1862501776",
+      "units": "kW",
+      "shape": 8760,
+      "promoted_name": "battery.electricity_headroom_out"
+    },
+    "plant.combiner.GenericCombinerPerformanceModel.electricity_out": {
+      "mean": "999888.7281588711",
+      "units": "kW",
+      "shape": 8760,
+      "promoted_name": "combiner.electricity_out"
+    },
+    "plant.combiner.GenericCombinerPerformanceModel.capacity_factor": {
+      "mean": "0.2746870747103111",
+      "units": "unitless",
+      "shape": 30,
+      "promoted_name": "combiner.capacity_factor"
+    },
+    "plant.combiner.GenericCombinerPerformanceModel.rated_electricity_production": {
+      "mean": "4715022.501594142",
+      "units": "kW",
+      "shape": 1,
+      "promoted_name": "combiner.rated_electricity_production"
+    },
+    "plant.electrical_load_demand.GenericDemandComponent.electricity_out": {
+      "mean": "999274.5953263714",
+      "units": "kW",
+      "shape": 8760,
+      "promoted_name": "electrical_load_demand.electricity_out"
+    },
+    "plant.electrical_load_demand.GenericDemandComponent.total_electricity_produced": {
+      "mean": "8753645455.059013",
+      "units": "kW*h",
+      "shape": 1,
+      "promoted_name": "electrical_load_demand.total_electricity_produced"
+    },
+    "plant.electrical_load_demand.GenericDemandComponent.annual_electricity_produced": {
+      "mean": "8753645455.059015",
+      "units": "kW*h/year",
+      "shape": 30,
+      "promoted_name": "electrical_load_demand.annual_electricity_produced"
+    },
+    "plant.electrical_load_demand.GenericDemandComponent.replacement_schedule": {
+      "mean": "0.0",
+      "units": "unitless",
+      "shape": 30,
+      "promoted_name": "electrical_load_demand.replacement_schedule"
+    },
+    "plant.electrical_load_demand.GenericDemandComponent.capacity_factor": {
+      "mean": "0.9992745953263716",
+      "units": "unitless",
+      "shape": 30,
+      "promoted_name": "electrical_load_demand.capacity_factor"
+    },
+    "plant.electrical_load_demand.GenericDemandComponent.rated_electricity_production": {
+      "mean": "1000000.0",
+      "units": "kW",
+      "shape": 1,
+      "promoted_name": "electrical_load_demand.rated_electricity_production"
+    },
+    "plant.electrical_load_demand.GenericDemandComponent.operational_life": {
+      "mean": "30.0",
+      "units": "year",
+      "shape": 1,
+      "promoted_name": "electrical_load_demand.operational_life"
+    },
+    "plant.electrical_load_demand.GenericDemandComponent.unmet_electricity_demand_out": {
+      "mean": "725.404673628589",
+      "units": "kW",
+      "shape": 8760,
+      "promoted_name": "electrical_load_demand.unmet_electricity_demand_out"
+    },
+    "plant.electrical_load_demand.GenericDemandComponent.unused_electricity_out": {
+      "mean": "614.1328324998223",
+      "units": "kW",
+      "shape": 8760,
+      "promoted_name": "electrical_load_demand.unused_electricity_out"
+    },
+    "plant.electrical_load_demand.GenericDemandComponent.electricity_demand_out": {
+      "mean": "1000000.0",
+      "units": "kW",
+      "shape": 8760,
+      "promoted_name": "electrical_load_demand.electricity_demand_out"
+    },
+    "plant.electrical_load_demand.GenericDemandComponent.percent_load_missed": {
+      "mean": "0.07254046736285891",
+      "units": "percent",
+      "shape": 1,
+      "promoted_name": "electrical_load_demand.percent_load_missed"
+    },
+    "plant.electrical_load_demand.GenericDemandComponent.curtailment_percent": {
+      "mean": "0.061420117579547656",
+      "units": "percent",
+      "shape": 1,
+      "promoted_name": "electrical_load_demand.curtailment_percent"
+    },
+    "plant.electricity_battery_to_combiner_cable.electricity_out": {
+      "mean": "-18685.58075597006",
+      "units": "kW",
+      "shape": 8760,
+      "promoted_name": "electricity_battery_to_combiner_cable.electricity_out"
+    },
+    "plant.electricity_combiner_to_electrical_load_demand_cable.electricity_out": {
+      "mean": "999888.7281588711",
+      "units": "kW",
+      "shape": 8760,
+      "promoted_name": "electricity_combiner_to_electrical_load_demand_cable.electricity_out"
+    },
+    "plant.electricity_natural_gas_plant_to_supply_combiner_cable.electricity_out": {
+      "mean": "72487.89203242662",
+      "units": "kW",
+      "shape": 8760,
+      "promoted_name": "electricity_natural_gas_plant_to_supply_combiner_cable.electricity_out"
+    },
+    "plant.electricity_renew_combiner_to_supply_combiner_cable.electricity_out": {
+      "mean": "946086.4168824146",
+      "units": "kW",
+      "shape": 8760,
+      "promoted_name": "electricity_renew_combiner_to_supply_combiner_cable.electricity_out"
+    },
+    "plant.electricity_solar_to_renew_combiner_cable.electricity_out": {
+      "mean": "356127.64585264336",
+      "units": "kW",
+      "shape": 8760,
+      "promoted_name": "electricity_solar_to_renew_combiner_cable.electricity_out"
+    },
+    "plant.electricity_supply_combiner_to_battery_cable.electricity_out": {
+      "mean": "1018574.3089148413",
+      "units": "kW",
+      "shape": 8760,
+      "promoted_name": "electricity_supply_combiner_to_battery_cable.electricity_out"
+    },
+    "plant.electricity_supply_combiner_to_combiner_cable.electricity_out": {
+      "mean": "1018574.3089148413",
+      "units": "kW",
+      "shape": 8760,
+      "promoted_name": "electricity_supply_combiner_to_combiner_cable.electricity_out"
+    },
+    "plant.electricity_wind_to_renew_combiner_cable.electricity_out": {
+      "mean": "589958.7710297713",
+      "units": "kW",
+      "shape": 8760,
+      "promoted_name": "electricity_wind_to_renew_combiner_cable.electricity_out"
+    },
+    "plant.finance_subgroup_electricity.adjusted_capex_opex_comp.capex_adjusted_solar": {
+      "mean": "2077864222.2828112",
+      "units": "USD",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_electricity.capex_adjusted_solar"
+    },
+    "plant.finance_subgroup_electricity.adjusted_capex_opex_comp.opex_adjusted_solar": {
+      "mean": "29020450.031882837",
+      "units": "USD/year",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_electricity.opex_adjusted_solar"
+    },
+    "plant.finance_subgroup_electricity.adjusted_capex_opex_comp.varopex_adjusted_solar": {
+      "mean": "0.0",
+      "units": "USD/year",
+      "shape": 30,
+      "promoted_name": "finance_subgroup_electricity.varopex_adjusted_solar"
+    },
+    "plant.finance_subgroup_electricity.adjusted_capex_opex_comp.capex_adjusted_wind": {
+      "mean": "2711268000.0",
+      "units": "USD",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_electricity.capex_adjusted_wind"
+    },
+    "plant.finance_subgroup_electricity.adjusted_capex_opex_comp.opex_adjusted_wind": {
+      "mean": "54684000.0",
+      "units": "USD/year",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_electricity.opex_adjusted_wind"
+    },
+    "plant.finance_subgroup_electricity.adjusted_capex_opex_comp.varopex_adjusted_wind": {
+      "mean": "0.0",
+      "units": "USD/year",
+      "shape": 30,
+      "promoted_name": "finance_subgroup_electricity.varopex_adjusted_wind"
+    },
+    "plant.finance_subgroup_electricity.adjusted_capex_opex_comp.capex_adjusted_battery": {
+      "mean": "3186688073.1589494",
+      "units": "USD",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_electricity.capex_adjusted_battery"
+    },
+    "plant.finance_subgroup_electricity.adjusted_capex_opex_comp.opex_adjusted_battery": {
+      "mean": "79667201.82897374",
+      "units": "USD/year",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_electricity.opex_adjusted_battery"
+    },
+    "plant.finance_subgroup_electricity.adjusted_capex_opex_comp.varopex_adjusted_battery": {
+      "mean": "0.0",
+      "units": "USD/year",
+      "shape": 30,
+      "promoted_name": "finance_subgroup_electricity.varopex_adjusted_battery"
+    },
+    "plant.finance_subgroup_electricity.adjusted_capex_opex_comp.capex_adjusted_natural_gas_plant": {
+      "mean": "1132438305.9996939",
+      "units": "USD",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_electricity.capex_adjusted_natural_gas_plant"
+    },
+    "plant.finance_subgroup_electricity.adjusted_capex_opex_comp.opex_adjusted_natural_gas_plant": {
+      "mean": "16201556.816121755",
+      "units": "USD/year",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_electricity.opex_adjusted_natural_gas_plant"
+    },
+    "plant.finance_subgroup_electricity.adjusted_capex_opex_comp.varopex_adjusted_natural_gas_plant": {
+      "mean": "0.0",
+      "units": "USD/year",
+      "shape": 30,
+      "promoted_name": "finance_subgroup_electricity.varopex_adjusted_natural_gas_plant"
+    },
+    "plant.finance_subgroup_electricity.adjusted_capex_opex_comp.capex_adjusted_ng_feedstock": {
+      "mean": "0.0",
+      "units": "USD",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_electricity.capex_adjusted_ng_feedstock"
+    },
+    "plant.finance_subgroup_electricity.adjusted_capex_opex_comp.opex_adjusted_ng_feedstock": {
+      "mean": "0.0",
+      "units": "USD/year",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_electricity.opex_adjusted_ng_feedstock"
+    },
+    "plant.finance_subgroup_electricity.adjusted_capex_opex_comp.varopex_adjusted_ng_feedstock": {
+      "mean": "22071505.488409404",
+      "units": "USD/year",
+      "shape": 30,
+      "promoted_name": "finance_subgroup_electricity.varopex_adjusted_ng_feedstock"
+    },
+    "plant.finance_subgroup_electricity.adjusted_capex_opex_comp.total_capex_adjusted": {
+      "mean": "9108258601.441456",
+      "units": "USD",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_electricity.total_capex_adjusted"
+    },
+    "plant.finance_subgroup_electricity.adjusted_capex_opex_comp.total_opex_adjusted": {
+      "mean": "179573208.67697835",
+      "units": "USD/year",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_electricity.total_opex_adjusted"
+    },
+    "plant.finance_subgroup_electricity.adjusted_capex_opex_comp.total_varopex_adjusted": {
+      "mean": "22071505.488409404",
+      "units": "USD/year",
+      "shape": 30,
+      "promoted_name": "finance_subgroup_electricity.total_varopex_adjusted"
+    },
+    "plant.finance_subgroup_electricity.electricity_finance_profast_lco.LCOE": {
+      "mean": "0.10371963056271227",
+      "units": "USD/kW/h",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_electricity.LCOE"
+    },
+    "plant.finance_subgroup_electricity.electricity_finance_profast_lco.price_electricity": {
+      "mean": "0.10371963056271227",
+      "units": "USD/kW/h",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_electricity.price_electricity"
+    },
+    "plant.finance_subgroup_electricity.electricity_finance_profast_lco.wacc_electricity": {
+      "mean": "0.06250447513812155",
+      "units": "percent",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_electricity.wacc_electricity"
+    },
+    "plant.finance_subgroup_electricity.electricity_finance_profast_lco.crf_electricity": {
+      "mean": "0.07227902962720263",
+      "units": "percent",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_electricity.crf_electricity"
+    },
+    "plant.finance_subgroup_electricity.electricity_finance_profast_lco.irr_electricity": {
+      "mean": "0.09000000000000119",
+      "units": "percent",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_electricity.irr_electricity"
+    },
+    "plant.finance_subgroup_electricity.electricity_finance_profast_lco.profit_index_electricity": {
+      "mean": "1.5693100719185222",
+      "units": "unitless",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_electricity.profit_index_electricity"
+    },
+    "plant.finance_subgroup_electricity.electricity_finance_profast_lco.investor_payback_period_electricity": {
+      "mean": "8.0",
+      "units": "year",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_electricity.investor_payback_period_electricity"
+    },
+    "plant.finance_subgroup_electricity.electricity_finance_profast_lco.LCOE_breakdown": {
+      "mean": "n/a",
+      "units": "n/a",
+      "shape": "n/a",
+      "promoted_name": "finance_subgroup_electricity.LCOE_breakdown"
+    },
+    "plant.finance_subgroup_natural_gas.adjusted_capex_opex_comp.capex_adjusted_natural_gas_plant": {
+      "mean": "1132438305.9996939",
+      "units": "USD",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_natural_gas.capex_adjusted_natural_gas_plant"
+    },
+    "plant.finance_subgroup_natural_gas.adjusted_capex_opex_comp.opex_adjusted_natural_gas_plant": {
+      "mean": "16201556.816121755",
+      "units": "USD/year",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_natural_gas.opex_adjusted_natural_gas_plant"
+    },
+    "plant.finance_subgroup_natural_gas.adjusted_capex_opex_comp.varopex_adjusted_natural_gas_plant": {
+      "mean": "0.0",
+      "units": "USD/year",
+      "shape": 30,
+      "promoted_name": "finance_subgroup_natural_gas.varopex_adjusted_natural_gas_plant"
+    },
+    "plant.finance_subgroup_natural_gas.adjusted_capex_opex_comp.capex_adjusted_ng_feedstock": {
+      "mean": "0.0",
+      "units": "USD",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_natural_gas.capex_adjusted_ng_feedstock"
+    },
+    "plant.finance_subgroup_natural_gas.adjusted_capex_opex_comp.opex_adjusted_ng_feedstock": {
+      "mean": "0.0",
+      "units": "USD/year",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_natural_gas.opex_adjusted_ng_feedstock"
+    },
+    "plant.finance_subgroup_natural_gas.adjusted_capex_opex_comp.varopex_adjusted_ng_feedstock": {
+      "mean": "22071505.488409404",
+      "units": "USD/year",
+      "shape": 30,
+      "promoted_name": "finance_subgroup_natural_gas.varopex_adjusted_ng_feedstock"
+    },
+    "plant.finance_subgroup_natural_gas.adjusted_capex_opex_comp.total_capex_adjusted": {
+      "mean": "1132438305.9996939",
+      "units": "USD",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_natural_gas.total_capex_adjusted"
+    },
+    "plant.finance_subgroup_natural_gas.adjusted_capex_opex_comp.total_opex_adjusted": {
+      "mean": "16201556.816121755",
+      "units": "USD/year",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_natural_gas.total_opex_adjusted"
+    },
+    "plant.finance_subgroup_natural_gas.adjusted_capex_opex_comp.total_varopex_adjusted": {
+      "mean": "22071505.488409404",
+      "units": "USD/year",
+      "shape": 30,
+      "promoted_name": "finance_subgroup_natural_gas.total_varopex_adjusted"
+    },
+    "plant.finance_subgroup_natural_gas.electricity_finance_profast_lco.LCOE_profast_lco": {
+      "mean": "253.0611866746318",
+      "units": "USD/MW/h",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_natural_gas.LCOE_profast_lco"
+    },
+    "plant.finance_subgroup_natural_gas.electricity_finance_profast_lco.price_electricity__profast_lco": {
+      "mean": "253.06118667463173",
+      "units": "USD/MW/h",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_natural_gas.price_electricity__profast_lco"
+    },
+    "plant.finance_subgroup_natural_gas.electricity_finance_profast_lco.wacc_electricity__profast_lco": {
+      "mean": "0.06250447513812155",
+      "units": "percent",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_natural_gas.wacc_electricity__profast_lco"
+    },
+    "plant.finance_subgroup_natural_gas.electricity_finance_profast_lco.crf_electricity__profast_lco": {
+      "mean": "0.07227902962720263",
+      "units": "percent",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_natural_gas.crf_electricity__profast_lco"
+    },
+    "plant.finance_subgroup_natural_gas.electricity_finance_profast_lco.irr_electricity__profast_lco": {
+      "mean": "0.0900000000000003",
+      "units": "percent",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_natural_gas.irr_electricity__profast_lco"
+    },
+    "plant.finance_subgroup_natural_gas.electricity_finance_profast_lco.profit_index_electricity__profast_lco": {
+      "mean": "1.577978330475903",
+      "units": "unitless",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_natural_gas.profit_index_electricity__profast_lco"
+    },
+    "plant.finance_subgroup_natural_gas.electricity_finance_profast_lco.investor_payback_period_electricity__profast_lco": {
+      "mean": "8.0",
+      "units": "year",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_natural_gas.investor_payback_period_electricity__profast_lco"
+    },
+    "plant.finance_subgroup_natural_gas.electricity_finance_profast_lco.LCOE_profast_lco_breakdown": {
+      "mean": "n/a",
+      "units": "n/a",
+      "shape": "n/a",
+      "promoted_name": "finance_subgroup_natural_gas.LCOE_profast_lco_breakdown"
+    },
+    "plant.finance_subgroup_natural_gas.electricity_finance_profast_npv.NPV_electricity__profast_npv": {
+      "mean": "-875246410.1497481",
+      "units": "USD",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_natural_gas.NPV_electricity__profast_npv"
+    },
+    "plant.finance_subgroup_renewable_generation.adjusted_capex_opex_comp.capex_adjusted_solar": {
+      "mean": "2077864222.2828112",
+      "units": "USD",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_renewable_generation.capex_adjusted_solar"
+    },
+    "plant.finance_subgroup_renewable_generation.adjusted_capex_opex_comp.opex_adjusted_solar": {
+      "mean": "29020450.031882837",
+      "units": "USD/year",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_renewable_generation.opex_adjusted_solar"
+    },
+    "plant.finance_subgroup_renewable_generation.adjusted_capex_opex_comp.varopex_adjusted_solar": {
+      "mean": "0.0",
+      "units": "USD/year",
+      "shape": 30,
+      "promoted_name": "finance_subgroup_renewable_generation.varopex_adjusted_solar"
+    },
+    "plant.finance_subgroup_renewable_generation.adjusted_capex_opex_comp.capex_adjusted_wind": {
+      "mean": "2711268000.0",
+      "units": "USD",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_renewable_generation.capex_adjusted_wind"
+    },
+    "plant.finance_subgroup_renewable_generation.adjusted_capex_opex_comp.opex_adjusted_wind": {
+      "mean": "54684000.0",
+      "units": "USD/year",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_renewable_generation.opex_adjusted_wind"
+    },
+    "plant.finance_subgroup_renewable_generation.adjusted_capex_opex_comp.varopex_adjusted_wind": {
+      "mean": "0.0",
+      "units": "USD/year",
+      "shape": 30,
+      "promoted_name": "finance_subgroup_renewable_generation.varopex_adjusted_wind"
+    },
+    "plant.finance_subgroup_renewable_generation.adjusted_capex_opex_comp.total_capex_adjusted": {
+      "mean": "4789132222.282811",
+      "units": "USD",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_renewable_generation.total_capex_adjusted"
+    },
+    "plant.finance_subgroup_renewable_generation.adjusted_capex_opex_comp.total_opex_adjusted": {
+      "mean": "83704450.03188284",
+      "units": "USD/year",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_renewable_generation.total_opex_adjusted"
+    },
+    "plant.finance_subgroup_renewable_generation.adjusted_capex_opex_comp.total_varopex_adjusted": {
+      "mean": "0.0",
+      "units": "USD/year",
+      "shape": 30,
+      "promoted_name": "finance_subgroup_renewable_generation.total_varopex_adjusted"
+    },
+    "plant.finance_subgroup_renewable_generation.electricity_finance_profast_lco.LCOE_profast_lco": {
+      "mean": "0.0546631114999591",
+      "units": "USD/kW/h",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_renewable_generation.LCOE_profast_lco"
+    },
+    "plant.finance_subgroup_renewable_generation.electricity_finance_profast_lco.price_electricity__profast_lco": {
+      "mean": "0.0546631114999591",
+      "units": "USD/kW/h",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_renewable_generation.price_electricity__profast_lco"
+    },
+    "plant.finance_subgroup_renewable_generation.electricity_finance_profast_lco.wacc_electricity__profast_lco": {
+      "mean": "0.06250447513812155",
+      "units": "percent",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_renewable_generation.wacc_electricity__profast_lco"
+    },
+    "plant.finance_subgroup_renewable_generation.electricity_finance_profast_lco.crf_electricity__profast_lco": {
+      "mean": "0.07227902962720263",
+      "units": "percent",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_renewable_generation.crf_electricity__profast_lco"
+    },
+    "plant.finance_subgroup_renewable_generation.electricity_finance_profast_lco.irr_electricity__profast_lco": {
+      "mean": "0.09000000000000252",
+      "units": "percent",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_renewable_generation.irr_electricity__profast_lco"
+    },
+    "plant.finance_subgroup_renewable_generation.electricity_finance_profast_lco.profit_index_electricity__profast_lco": {
+      "mean": "1.5658447610553332",
+      "units": "unitless",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_renewable_generation.profit_index_electricity__profast_lco"
+    },
+    "plant.finance_subgroup_renewable_generation.electricity_finance_profast_lco.investor_payback_period_electricity__profast_lco": {
+      "mean": "8.0",
+      "units": "year",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_renewable_generation.investor_payback_period_electricity__profast_lco"
+    },
+    "plant.finance_subgroup_renewable_generation.electricity_finance_profast_lco.LCOE_profast_lco_breakdown": {
+      "mean": "n/a",
+      "units": "n/a",
+      "shape": "n/a",
+      "promoted_name": "finance_subgroup_renewable_generation.LCOE_profast_lco_breakdown"
+    },
+    "plant.finance_subgroup_renewable_generation.electricity_finance_profast_npv.NPV_electricity__profast_npv": {
+      "mean": "-3237644223.9885287",
+      "units": "USD",
+      "shape": 1,
+      "promoted_name": "finance_subgroup_renewable_generation.NPV_electricity__profast_npv"
+    },
+    "plant.natural_gas_ng_feedstock_to_natural_gas_plant_pipe.natural_gas_out": {
+      "mean": "7500.0",
+      "units": "MMBtu/h",
+      "shape": 8760,
+      "promoted_name": "natural_gas_ng_feedstock_to_natural_gas_plant_pipe.natural_gas_out"
+    },
+    "plant.natural_gas_plant.NaturalGasCostModel.CapEx": {
+      "mean": "1250000000.0",
+      "units": "USD",
+      "shape": 1,
+      "promoted_name": "natural_gas_plant.CapEx"
+    },
+    "plant.natural_gas_plant.NaturalGasCostModel.OpEx": {
+      "mean": "17883487.26182852",
+      "units": "USD/year",
+      "shape": 1,
+      "promoted_name": "natural_gas_plant.OpEx"
+    },
+    "plant.natural_gas_plant.NaturalGasCostModel.VarOpEx": {
+      "mean": "0.0",
+      "units": "USD/year",
+      "shape": 30,
+      "promoted_name": "natural_gas_plant.VarOpEx"
+    },
+    "plant.natural_gas_plant.NaturalGasCostModel.marginal_cost": {
+      "mean": "0.0",
+      "units": "USD/kW/h",
+      "shape": 1,
+      "promoted_name": "natural_gas_plant.marginal_cost"
+    },
+    "plant.natural_gas_plant.NaturalGasCostModel.cost_year": {
+      "mean": "2026",
+      "units": "n/a",
+      "shape": "n/a",
+      "promoted_name": "natural_gas_plant.cost_year"
+    },
+    "plant.natural_gas_plant.NaturalGasPerformanceModel.electricity_out": {
+      "mean": "72.48789203242663",
+      "units": "MW",
+      "shape": 8760,
+      "promoted_name": "natural_gas_plant.electricity_out"
+    },
+    "plant.natural_gas_plant.NaturalGasPerformanceModel.total_electricity_produced": {
+      "mean": "634993.9342040572",
+      "units": "MW*h",
+      "shape": 1,
+      "promoted_name": "natural_gas_plant.total_electricity_produced"
+    },
+    "plant.natural_gas_plant.NaturalGasPerformanceModel.annual_electricity_produced": {
+      "mean": "634993.9342040571",
+      "units": "MW*h/year",
+      "shape": 30,
+      "promoted_name": "natural_gas_plant.annual_electricity_produced"
+    },
+    "plant.natural_gas_plant.NaturalGasPerformanceModel.replacement_schedule": {
+      "mean": "0.0",
+      "units": "unitless",
+      "shape": 30,
+      "promoted_name": "natural_gas_plant.replacement_schedule"
+    },
+    "plant.natural_gas_plant.NaturalGasPerformanceModel.capacity_factor": {
+      "mean": "0.14497578406485323",
+      "units": "unitless",
+      "shape": 30,
+      "promoted_name": "natural_gas_plant.capacity_factor"
+    },
+    "plant.natural_gas_plant.NaturalGasPerformanceModel.rated_electricity_production": {
+      "mean": "500.0",
+      "units": "MW",
+      "shape": 1,
+      "promoted_name": "natural_gas_plant.rated_electricity_production"
+    },
+    "plant.natural_gas_plant.NaturalGasPerformanceModel.operational_life": {
+      "mean": "30.0",
+      "units": "year",
+      "shape": 1,
+      "promoted_name": "natural_gas_plant.operational_life"
+    },
+    "plant.natural_gas_plant.NaturalGasPerformanceModel.natural_gas_consumed": {
+      "mean": "456.6737198042877",
+      "units": "MMBtu/h",
+      "shape": 8760,
+      "promoted_name": "natural_gas_plant.natural_gas_consumed"
+    },
+    "plant.natural_gas_plant.NaturalGasPerformanceModel.electricity_headroom_out": {
+      "mean": "427.51210796757334",
+      "units": "MW",
+      "shape": 8760,
+      "promoted_name": "natural_gas_plant.electricity_headroom_out"
+    },
+    "plant.natural_gas_plant.NaturalGasPerformanceModel.unmet_electricity_demand": {
+      "mean": "2.6945467673459506e-15",
+      "units": "MW",
+      "shape": 8760,
+      "promoted_name": "natural_gas_plant.unmet_electricity_demand"
+    },
+    "plant.natural_gas_plant.controller.electricity_command_value": {
+      "mean": "72.48789203242663",
+      "units": "MW",
+      "shape": 8760,
+      "promoted_name": "natural_gas_plant.electricity_command_value"
+    },
+    "plant.ng_feedstock.CapEx": {
+      "mean": "0.0",
+      "units": "USD",
+      "shape": 1,
+      "promoted_name": "ng_feedstock.CapEx"
+    },
+    "plant.ng_feedstock.OpEx": {
+      "mean": "0.0",
+      "units": "USD/year",
+      "shape": 1,
+      "promoted_name": "ng_feedstock.OpEx"
+    },
+    "plant.ng_feedstock.VarOpEx": {
+      "mean": "24362812.273606736",
+      "units": "USD/year",
+      "shape": 30,
+      "promoted_name": "ng_feedstock.VarOpEx"
+    },
+    "plant.ng_feedstock.marginal_cost": {
+      "mean": "0.0",
+      "units": "USD/MMBtu",
+      "shape": 1,
+      "promoted_name": "ng_feedstock.marginal_cost"
+    },
+    "plant.ng_feedstock.total_natural_gas_consumed": {
+      "mean": "4000461.7854855605",
+      "units": "MMBtu",
+      "shape": 1,
+      "promoted_name": "ng_feedstock.total_natural_gas_consumed"
+    },
+    "plant.ng_feedstock.annual_natural_gas_consumed": {
+      "mean": "4000461.7854855615",
+      "units": "MMBtu/year",
+      "shape": 30,
+      "promoted_name": "ng_feedstock.annual_natural_gas_consumed"
+    },
+    "plant.ng_feedstock.capacity_factor": {
+      "mean": "0.06088982930723838",
+      "units": "unitless",
+      "shape": 30,
+      "promoted_name": "ng_feedstock.capacity_factor"
+    },
+    "plant.ng_feedstock.replacement_schedule": {
+      "mean": "0.0",
+      "units": "unitless",
+      "shape": 30,
+      "promoted_name": "ng_feedstock.replacement_schedule"
+    },
+    "plant.ng_feedstock.rated_natural_gas_production": {
+      "mean": "7500.0",
+      "units": "MMBtu/h",
+      "shape": 1,
+      "promoted_name": "ng_feedstock.rated_natural_gas_production"
+    },
+    "plant.ng_feedstock.cost_year": {
+      "mean": "2026",
+      "units": "n/a",
+      "shape": "n/a",
+      "promoted_name": "ng_feedstock.cost_year"
+    },
+    "plant.ng_feedstock_source.natural_gas_out": {
+      "mean": "7500.0",
+      "units": "MMBtu/h",
+      "shape": 8760,
+      "promoted_name": "ng_feedstock_source.natural_gas_out"
+    },
+    "plant.renew_combiner.GenericCombinerPerformanceModel.electricity_out": {
+      "mean": "946086.4168824146",
+      "units": "kW",
+      "shape": 8760,
+      "promoted_name": "renew_combiner.electricity_out"
+    },
+    "plant.renew_combiner.GenericCombinerPerformanceModel.capacity_factor": {
+      "mean": "0.38611033865679545",
+      "units": "unitless",
+      "shape": 30,
+      "promoted_name": "renew_combiner.capacity_factor"
+    },
+    "plant.renew_combiner.GenericCombinerPerformanceModel.rated_electricity_production": {
+      "mean": "3215022.501594142",
+      "units": "kW",
+      "shape": 1,
+      "promoted_name": "renew_combiner.rated_electricity_production"
+    },
+    "plant.solar.ATBUtilityPVCostModel.CapEx": {
+      "mean": "2077864222.2828112",
+      "units": "USD",
+      "shape": 1,
+      "promoted_name": "solar.CapEx"
+    },
+    "plant.solar.ATBUtilityPVCostModel.OpEx": {
+      "mean": "29020450.031882837",
+      "units": "USD/year",
+      "shape": 1,
+      "promoted_name": "solar.OpEx"
+    },
+    "plant.solar.ATBUtilityPVCostModel.VarOpEx": {
+      "mean": "0.0",
+      "units": "USD/year",
+      "shape": 30,
+      "promoted_name": "solar.VarOpEx"
+    },
+    "plant.solar.ATBUtilityPVCostModel.marginal_cost": {
+      "mean": "0.0",
+      "units": "USD/kW/h",
+      "shape": 1,
+      "promoted_name": "solar.marginal_cost"
+    },
+    "plant.solar.ATBUtilityPVCostModel.cost_year": {
+      "mean": "2022",
+      "units": "n/a",
+      "shape": "n/a",
+      "promoted_name": "solar.cost_year"
+    },
+    "plant.solar.PYSAMSolarPlantPerformanceModel.electricity_out": {
+      "mean": "356127.64585264336",
+      "units": "kW",
+      "shape": 8760,
+      "promoted_name": "solar.electricity_out"
+    },
+    "plant.solar.PYSAMSolarPlantPerformanceModel.total_electricity_produced": {
+      "mean": "4386043816.548486",
+      "units": "kW*h",
+      "shape": 1,
+      "promoted_name": "solar.total_electricity_produced"
+    },
+    "plant.solar.PYSAMSolarPlantPerformanceModel.annual_electricity_produced": {
+      "mean": "4386043816.548571",
+      "units": "kW*h/year",
+      "shape": 30,
+      "promoted_name": "solar.annual_electricity_produced"
+    },
+    "plant.solar.PYSAMSolarPlantPerformanceModel.replacement_schedule": {
+      "mean": "0.0",
+      "units": "unitless",
+      "shape": 30,
+      "promoted_name": "solar.replacement_schedule"
+    },
+    "plant.solar.PYSAMSolarPlantPerformanceModel.capacity_factor": {
+      "mean": "0.3450600751165961",
+      "units": "unitless",
+      "shape": 30,
+      "promoted_name": "solar.capacity_factor"
+    },
+    "plant.solar.PYSAMSolarPlantPerformanceModel.rated_electricity_production": {
+      "mean": "1451022.5015941418",
+      "units": "kW",
+      "shape": 1,
+      "promoted_name": "solar.rated_electricity_production"
+    },
+    "plant.solar.PYSAMSolarPlantPerformanceModel.operational_life": {
+      "mean": "30.0",
+      "units": "year",
+      "shape": 1,
+      "promoted_name": "solar.operational_life"
+    },
+    "plant.solar.PYSAMSolarPlantPerformanceModel.uncurtailed_electricity_out": {
+      "mean": "500689.9333959459",
+      "units": "kW",
+      "shape": 8760,
+      "promoted_name": "solar.uncurtailed_electricity_out"
+    },
+    "plant.solar.PYSAMSolarPlantPerformanceModel.system_capacity_AC": {
+      "mean": "1451022.5015941418",
+      "units": "kW",
+      "shape": 1,
+      "promoted_name": "solar.system_capacity_AC"
+    },
+    "plant.solar.controller.electricity_command_value": {
+      "mean": "356127.64585264336",
+      "units": "kW",
+      "shape": 8760,
+      "promoted_name": "solar.electricity_command_value"
+    },
+    "plant.supply_combiner.GenericCombinerPerformanceModel.electricity_out": {
+      "mean": "1018574.3089148413",
+      "units": "kW",
+      "shape": 8760,
+      "promoted_name": "supply_combiner.electricity_out"
+    },
+    "plant.supply_combiner.GenericCombinerPerformanceModel.capacity_factor": {
+      "mean": "0.3536563556071005",
+      "units": "unitless",
+      "shape": 30,
+      "promoted_name": "supply_combiner.capacity_factor"
+    },
+    "plant.supply_combiner.GenericCombinerPerformanceModel.rated_electricity_production": {
+      "mean": "3715022.501594142",
+      "units": "kW",
+      "shape": 1,
+      "promoted_name": "supply_combiner.rated_electricity_production"
+    },
+    "plant.system_level_controller.wind_electricity_set_point": {
+      "mean": "589958.7710297713",
+      "units": "kW",
+      "shape": 8760,
+      "promoted_name": "system_level_controller.wind_electricity_set_point"
+    },
+    "plant.system_level_controller.solar_electricity_set_point": {
+      "mean": "356127.64585264336",
+      "units": "kW",
+      "shape": 8760,
+      "promoted_name": "system_level_controller.solar_electricity_set_point"
+    },
+    "plant.system_level_controller.natural_gas_plant_electricity_set_point": {
+      "mean": "72487.89203242662",
+      "units": "kW",
+      "shape": 8760,
+      "promoted_name": "system_level_controller.natural_gas_plant_electricity_set_point"
+    },
+    "plant.system_level_controller.battery_electricity_set_point": {
+      "mean": "999274.5953263714",
+      "units": "kW",
+      "shape": 8760,
+      "promoted_name": "system_level_controller.battery_electricity_set_point"
+    },
+    "plant.system_level_controller.uc_solve_wall_s": {
+      "mean": "36.10968575000879",
+      "units": "s",
+      "shape": 1,
+      "promoted_name": "system_level_controller.uc_solve_wall_s"
+    },
+    "plant.wind.ATBWindPlantCostModel.CapEx": {
+      "mean": "2711268000.0",
+      "units": "USD",
+      "shape": 1,
+      "promoted_name": "wind.CapEx"
+    },
+    "plant.wind.ATBWindPlantCostModel.OpEx": {
+      "mean": "54684000.0",
+      "units": "USD/year",
+      "shape": 1,
+      "promoted_name": "wind.OpEx"
+    },
+    "plant.wind.ATBWindPlantCostModel.VarOpEx": {
+      "mean": "0.0",
+      "units": "USD/year",
+      "shape": 30,
+      "promoted_name": "wind.VarOpEx"
+    },
+    "plant.wind.ATBWindPlantCostModel.marginal_cost": {
+      "mean": "0.0",
+      "units": "USD/kW/h",
+      "shape": 1,
+      "promoted_name": "wind.marginal_cost"
+    },
+    "plant.wind.ATBWindPlantCostModel.cost_year": {
+      "mean": "2022",
+      "units": "n/a",
+      "shape": "n/a",
+      "promoted_name": "wind.cost_year"
+    },
+    "plant.wind.PYSAMWindPlantPerformanceModel.electricity_out": {
+      "mean": "589958.7710297713",
+      "units": "kW",
+      "shape": 8760,
+      "promoted_name": "wind.electricity_out"
+    },
+    "plant.wind.PYSAMWindPlantPerformanceModel.total_electricity_produced": {
+      "mean": "6488212202.917964",
+      "units": "kW*h",
+      "shape": 1,
+      "promoted_name": "wind.total_electricity_produced"
+    },
+    "plant.wind.PYSAMWindPlantPerformanceModel.annual_electricity_produced": {
+      "mean": "6488212202.918038",
+      "units": "kW*h/year",
+      "shape": 30,
+      "promoted_name": "wind.annual_electricity_produced"
+    },
+    "plant.wind.PYSAMWindPlantPerformanceModel.replacement_schedule": {
+      "mean": "0.0",
+      "units": "unitless",
+      "shape": 30,
+      "promoted_name": "wind.replacement_schedule"
+    },
+    "plant.wind.PYSAMWindPlantPerformanceModel.capacity_factor": {
+      "mean": "0.41987726387969704",
+      "units": "unitless",
+      "shape": 30,
+      "promoted_name": "wind.capacity_factor"
+    },
+    "plant.wind.PYSAMWindPlantPerformanceModel.rated_electricity_production": {
+      "mean": "1764000.0",
+      "units": "kW",
+      "shape": 1,
+      "promoted_name": "wind.rated_electricity_production"
+    },
+    "plant.wind.PYSAMWindPlantPerformanceModel.operational_life": {
+      "mean": "30.0",
+      "units": "year",
+      "shape": 1,
+      "promoted_name": "wind.operational_life"
+    },
+    "plant.wind.PYSAMWindPlantPerformanceModel.uncurtailed_electricity_out": {
+      "mean": "740663.4934837859",
+      "units": "kW",
+      "shape": 8760,
+      "promoted_name": "wind.uncurtailed_electricity_out"
+    },
+    "plant.wind.controller.electricity_command_value": {
+      "mean": "589958.7710297713",
+      "units": "kW",
+      "shape": 8760,
+      "promoted_name": "wind.electricity_command_value"
+    },
+    "site.site_component.latitude": {
+      "mean": "34.382308",
+      "units": "deg",
+      "shape": 1,
+      "promoted_name": "site.latitude"
+    },
+    "site.site_component.longitude": {
+      "mean": "-101.816607",
+      "units": "deg",
+      "shape": 1,
+      "promoted_name": "site.longitude"
+    },
+    "site.site_component.elevation": {
+      "mean": "0.0",
+      "units": "m",
+      "shape": 1,
+      "promoted_name": "site.elevation"
+    }
+  },
+  "implicit_outputs": {}
+}

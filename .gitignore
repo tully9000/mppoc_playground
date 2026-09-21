@@ -228,10 +228,12 @@ plots/
 */ouputs/*
 outputs/
 control_case/sweep_year_battery/outputs/
+resources/
 
 
 run_data/
 
 *.tex
 *.tikz
-
+*.npz
+*data.csv
