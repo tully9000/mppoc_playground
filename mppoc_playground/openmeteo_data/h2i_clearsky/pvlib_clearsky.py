@@ -15,10 +15,12 @@ from h2integrate.core.validators import range_val
 from h2integrate.resource.solar.solar_resource_base import SolarResourceBaseAPIModel
 from h2integrate.resource.resource_base import ResourceBaseAPIConfig
 
-class PVLibClearSkyResourceAPIConfig(ResourceBaseAPIConfig):
-    resource_year: int = field(converter=int, validator=range_val(1940, datetime.now().year - 1))
-    resource_dir: Path | str | None = field(default=None)
 
+class PVLibClearSkyResourceAPIConfig(ResourceBaseAPIConfig):
+    resource_year: int = field(
+        converter=int, validator=range_val(1940, datetime.now().year - 1)
+    )
+    resource_dir: Path | str | None = field(default=None)
 
 
 class PVLibClearSkyResource(SolarResourceBaseAPIModel):
@@ -32,28 +34,22 @@ class PVLibClearSkyResource(SolarResourceBaseAPIModel):
     be raised when `compute_clearsky` is called.
     """
 
-
     drought_start = 4380
-    drought_duration = 24
-    drought_fraction = 0.5
-
+    drought_duration = 1
+    drought_fraction = 1.0
 
     def setup(self):
         resource_specs = self.helper_setup_method()
-        self.config = PVLibClearSkyResourceAPIConfig.from_dict(resource_specs,            additional_cls_name=self.__class__.__name__, strict=False)
+        self.config = PVLibClearSkyResourceAPIConfig.from_dict(
+            resource_specs, additional_cls_name=self.__class__.__name__, strict=False
+        )
 
         super().setup()
 
-
-
-
-
         yr = resource_specs["resource_year"]
-        times = pd.date_range(f'{yr}-01-01 00:00:00', f'{yr}-12-31 23:59:00', freq='1h')
+        times = pd.date_range(f"{yr}-01-01 00:00:00", f"{yr}-12-31 23:59:00", freq="1h")
         # data = self.get_data()
-        data = self.compute_clearsky(times = times, site_info=resource_specs)
-
-
+        data = self.compute_clearsky(times=times, site_info=resource_specs)
 
         self.resource_data = data
 
@@ -75,7 +71,9 @@ class PVLibClearSkyResource(SolarResourceBaseAPIModel):
             dict: keys include `ghi`, `dni`, `dhi`, and `solar_zenith_angle` as numpy arrays.
         """
         if pvlib is None:
-            raise ImportError("pvlib is required for PVLibClearSkyResource but is not installed")
+            raise ImportError(
+                "pvlib is required for PVLibClearSkyResource but is not installed"
+            )
 
         # lazy import of pandas to avoid hard dependency when not used
         import pandas as pd
@@ -86,9 +84,13 @@ class PVLibClearSkyResource(SolarResourceBaseAPIModel):
         elev = site_info.get("elevation", 0.0)
 
         if lat is None or lon is None or tz is None:
-            raise ValueError("site_info must include 'latitude', 'longitude', and 'tz'/'timezone'")
+            raise ValueError(
+                "site_info must include 'latitude', 'longitude', and 'tz'/'timezone'"
+            )
 
-        location = pvlib.location.Location(latitude=lat, longitude=lon, tz=tz, altitude=elev)
+        location = pvlib.location.Location(
+            latitude=lat, longitude=lon, tz=tz, altitude=elev
+        )
 
         # ensure times are a timezone-aware DatetimeIndex
         if not isinstance(times, pd.DatetimeIndex):
@@ -103,14 +105,13 @@ class PVLibClearSkyResource(SolarResourceBaseAPIModel):
         # solar position for zenith angle
         solpos = location.get_solarposition(times)
 
-
         ghi = np.asarray(clearsky["ghi"])
         dni = np.asarray(clearsky.get("dni", np.zeros(len(times))))
         dhi = np.asarray(clearsky.get("dhi", np.zeros(len(times))))
 
-
-
-        drought_slice = slice(self.drought_start, self.drought_start + self.drought_duration)
+        drought_slice = slice(
+            self.drought_start, self.drought_start + self.drought_duration
+        )
 
         ghi[drought_slice] = ghi[drought_slice] * self.drought_fraction
         dni[drought_slice] = dni[drought_slice] * self.drought_fraction
@@ -129,12 +130,12 @@ class PVLibClearSkyResource(SolarResourceBaseAPIModel):
             "data_tz": tz,
             "site_lat": self.config.latitude,
             "site_lon": self.config.longitude,
-            "elevation":644.0,
+            "elevation": 644.0,
             "year": times.year.to_numpy(),
             "month": times.month.to_numpy(),
-            "day": times.day.to_numpy(),       # Day of month
-            "hour": times.hour.to_numpy(),    # hour of day
-            "minute": times.minute.to_numpy() + 30
+            "day": times.day.to_numpy(),  # Day of month
+            "hour": times.hour.to_numpy(),  # hour of day
+            "minute": times.minute.to_numpy() + 30,
         }
 
         return out
@@ -152,6 +153,7 @@ class PVLibClearSkyResource(SolarResourceBaseAPIModel):
             `data_units` maps variable names to units strings compatible with
             `SolarResourceBaseAPIModel.compare_units_and_correct`.
         """
+
         # extract site info from config (support dotted and nested dicts)
         def _get(cfg, *keys):
             for k in keys:

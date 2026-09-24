@@ -2,6 +2,8 @@ from h2integrate import H2IntegrateModel
 import matplotlib.pyplot as plt
 import numpy as np
 from copy import deepcopy
+import openmdao.api as om
+
 
 from pathlib import Path
 import yaml
@@ -86,6 +88,43 @@ for i, dd in enumerate(drought_durations):
     curtailments.append(np.sum(curtailment))
 
     if plot_optimization_evolution:
+
+        rec_fpath = Path(__file__).parent / h2i.prob.driver._rec_mgr._recorders[0]._filepath
+        cr = om.CaseReader(rec_fpath)
+
+        driver_cases = cr.get_cases("driver")
+        iterations = []
+        
+        # 3. Extract the history arrays
+        iterations = []
+        obj_history = []
+        x_history = []
+
+        for j, case in enumerate(driver_cases):
+            iterations.append(j)
+
+            # Get unscaled values using the promoted variable names
+            # Swap 'objective_name' and 'design_var_name' with your actual variable strings
+            obj_history.append(case.get_objectives()["finance_subgroup_electricity.LCOE"])
+            x_history.append(case.get_design_vars()["solar.system_capacity_DC"])
+
+        # 4. Create the convergence plot
+        fig, ax = plt.subplots(2, 1, sharex=True, figsize=(8, 6), layout="constrained")
+
+        ax[0].plot(iterations, obj_history, "b-o", label="Objective")
+        ax[0].set_ylabel("Objective Value")
+        ax[0].legend()
+        ax[0].grid(True)
+
+        ax[1].plot(iterations, x_history, "r-s", label="Design Variable (x)")
+        ax[1].set_ylabel("Variable Value")
+        ax[1].set_xlabel("COBYLA Iteration / Evaluation Index")
+        ax[1].legend()
+        ax[1].grid(True)
+
+
+
+
         pass
 
 
