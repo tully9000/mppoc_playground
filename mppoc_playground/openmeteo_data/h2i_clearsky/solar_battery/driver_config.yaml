@@ -3,7 +3,59 @@ description: This analysis runs a natural gas power plant with hybrid wind and s
 general:
   folder_output: outputs
 recorder:
-  flag: False
-  file: "cases.sql"
+  flag: True
+  file: "solar_battery_cases.sql"
   overwrite_recorder: True
   recorder_attachment: "driver"
+driver: 
+  optimization:
+    flag: true
+    tol: 0.01
+    max_iter: 1000
+    solver: COBYLA
+    rhobeg: 100000
+    debug_print: false
+    autoscaler: bounds
+design_variables:
+  solar:
+    system_capacity_DC:
+      flag: true
+      lower: 100000
+      upper: 5000000
+      units: kW
+  battery:
+    max_charge_rate:
+      flag: true
+      lower: 10000
+      upper: 20000000
+      units: kW
+    storage_capacity:
+      flag: true
+      lower: 0.0
+      upper: 100000000
+      units: kW*h
+  # electrical_load_demand:
+  #   electricity_demand:
+  #     flag: false
+  #     lower: 0.0
+  #     upper: 1000000
+  #     units: kW
+constraints:
+  electrical_load_demand:
+    percent_load_missed:
+      flag: true
+      upper: 0.01
+      # lower: 20.
+      units: percent
+    curtailment_percent:
+      flag: false
+      lower: 20.0
+      units: percent
+  battery:
+    storage_duration:
+      flag: false
+      lower: 0.01
+      upper: 10
+      units: h
+objective:
+  name: finance_subgroup_electricity.LCOE

@@ -32,11 +32,21 @@ class PVLibClearSkyResource(SolarResourceBaseAPIModel):
     be raised when `compute_clearsky` is called.
     """
 
+
+    drought_start = 4380
+    drought_duration = 24
+    drought_fraction = 0.5
+
+
     def setup(self):
         resource_specs = self.helper_setup_method()
         self.config = PVLibClearSkyResourceAPIConfig.from_dict(resource_specs,            additional_cls_name=self.__class__.__name__, strict=False)
 
         super().setup()
+
+
+
+
 
         yr = resource_specs["resource_year"]
         times = pd.date_range(f'{yr}-01-01 00:00:00', f'{yr}-12-31 23:59:00', freq='1h')
@@ -93,10 +103,23 @@ class PVLibClearSkyResource(SolarResourceBaseAPIModel):
         # solar position for zenith angle
         solpos = location.get_solarposition(times)
 
+
+        ghi = np.asarray(clearsky["ghi"])
+        dni = np.asarray(clearsky.get("dni", np.zeros(len(times))))
+        dhi = np.asarray(clearsky.get("dhi", np.zeros(len(times))))
+
+
+
+        drought_slice = slice(self.drought_start, self.drought_start + self.drought_duration)
+
+        ghi[drought_slice] = ghi[drought_slice] * self.drought_fraction
+        dni[drought_slice] = dni[drought_slice] * self.drought_fraction
+        dhi[drought_slice] = dhi[drought_slice] * self.drought_fraction
+
         out = {
-            "ghi": np.asarray(clearsky["ghi"]),
-            "dni": np.asarray(clearsky.get("dni", np.zeros(len(times)))),
-            "dhi": np.asarray(clearsky.get("dhi", np.zeros(len(times)))),
+            "ghi": ghi,
+            "dni": dni,
+            "dhi": dhi,
             "wind_speed": np.ones(len(times)) * 4,
             "temperature": np.ones(len(times)) * 6,
             # "pressure": np.ones(len(times)) * 945,

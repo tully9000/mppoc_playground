@@ -1,37 +1,6 @@
 name: technology_config
 description: This plant produces electricity with wind, solar, natural gas and battery to meet a fixed electrical load demand, coordinated by the system-level controller (SLC).
 technologies:
-  wind:
-    performance_model:
-      model: PYSAMWindPlantPerformanceModel
-    cost_model:
-      model: ATBWindPlantCostModel
-    model_inputs:
-      performance_parameters:
-        num_turbines: 294
-        turbine_rating_kw: 6000
-        hub_height: 115
-        rotor_diameter: 170
-        create_model_from: default
-        config_name: WindPowerSingleOwner
-        pysam_options:
-          Farm:
-            wind_farm_wake_model: 0
-          Losses:
-            ops_strategies_loss: 0.0
-        layout:
-          layout_mode: basicgrid
-          layout_options:
-            row_D_spacing: 7.0
-            turbine_D_spacing: 7.0
-            rotation_angle_deg: 0.0
-            row_phase_offset: 0.0
-            layout_shape: square
-      cost_parameters:
-        # 2024 NLR ATB, Land-Based Wind, Class 2, Technology 1, moderate, 2026 numbers
-        capex_per_kW: 1537.00
-        opex_per_kW_per_year: 31.00
-        cost_year: 2022
   solar:
     performance_model:
       model: PYSAMSolarPlantPerformanceModel
@@ -39,7 +8,8 @@ technologies:
       model: ATBUtilityPVCostModel
     model_inputs:
       performance_parameters:
-        pv_capacity_kWdc: 1944370.15213615
+        # pv_capacity_kWdc: 1944370.15213615
+        pv_capacity_kWdc: 1900000.0
         dc_ac_ratio: 1.34
         create_model_from: new
         tilt_angle_func: lat-func
@@ -60,67 +30,87 @@ technologies:
         capex_per_kWac: 1432.00
         opex_per_kWac_per_year: 20.00
         cost_year: 2022
-  combiner:
+  bat_combiner:
     performance_model:
       model: GenericCombinerPerformanceModel
     model_inputs:
       performance_parameters:
         commodity: electricity
-        commodity_rate_units: kW
-  electricity_feedstock:
+        commodity_rate_units: kW  
+  battery:
     performance_model:
-      model: FeedstockPerformanceModel
+      model: StoragePerformanceModel
     cost_model:
-      model: FeedstockCostModel
+      model: ATBBatteryCostModel
+    # Under SLC, the battery-level controller is a thin passthrough; SLC
+    # decides discharge/charge set-points at the system level. Using
+    # SimpleStorageOpenLoopController (mirrors examples/35 battery_with_controller).
+    control_strategy:
+      model: SimpleStorageOpenLoopController
     model_inputs:
       shared_parameters:
         commodity: electricity
         commodity_rate_units: kW
+        max_charge_rate: 1000000.0  # kW, 1000 MW
+        max_capacity: 19000000  # kWh
+        # max_capacity: 9679084.421410604  # kWh, ~9.7 GWh
+        demand_profile: 300000.0  # kW; unused by SimpleStorageOpenLoopController when set_demand_as_avg_commodity_in=false + SLC drives set_point
+        # demand_profile: 1000000.0  # kW; unused by SimpleStorageOpenLoopController when set_demand_as_avg_commodity_in=false + SLC drives set_point
       performance_parameters:
-        rated_capacity: 500000000.0  # kW
+        max_soc_fraction: 0.9
+        min_soc_fraction: 0.1
+        init_soc_fraction: 0.9
+        round_trip_efficiency: 0.9
+      control_parameters:
+        set_demand_as_avg_commodity_in: false
       cost_parameters:
+        # 2024 NLR ATB, Utility-Scale Battery Storage, moderate, 2026 numbers
         cost_year: 2022
-        price: 0.0  # USD/kWh - to be set through connections
-        annual_cost: 0.
-        start_up_cost: 0.
-  # Grid interconnection used purely to purchase electricity for the electrolyzer
-  # (Approach C). NOTE: the tech name MUST start with "grid_buy" for the financial
-  # logic to treat its variable cost as a purchase (expense) rather than a coproduct.
-  grid_buy:
+        energy_capex: 297.00
+        power_capex: 312.00
+        opex_fraction: 0.025
+  electrical_load_demand:
     performance_model:
-      model: GridPerformanceModel
-    cost_model:
-      model: GridCostModel
+      model: GenericDemandComponent
     model_inputs:
-      shared_parameters:
-        interconnection_size: 5.e8  # kW - large so it never limits the electrolyzer's purchases
-      cost_parameters:
-        cost_year: 2022
-        # Purchase price is set through a connection to the wind + solar LCOE.
-        electricity_buy_price: 0.0  # USD/kWh - overwritten by the finance_subgroup_electricity.LCOE
-        buy_price_mode: per_timestep
-        # No interconnection capital/O&M charged here so only the energy cost matters.
-        interconnection_capex_per_kw: 0.0  # $/kW capital cost
-        interconnection_opex_per_kw: 0.0  # $/kW/year O&M cost
-        fixed_interconnection_cost: 0.0  # $ one-time fixed cost
-  electrolyzer:
-    performance_model:
-      model: ECOElectrolyzerPerformanceModel
-    cost_model:
-      model: SingliticoCostModel
-    model_inputs:
-      shared_parameters:
-        location: onshore
-        electrolyzer_capex: 1295  # $/kW overnight installed capital costs for a 1 MW system in 2022 USD/kW (DOE hydrogen program record 24005 Clean Hydrogen Production Cost Scenarios with PEM Electrolyzer Technology 05/20/24) (https://www.hydrogen.energy.gov/docs/hydrogenprogramlibraries/pdfs/24005-clean-hydrogen-production-cost-pem-electrolyzer.pdf?sfvrsn=8cb10889_1)
       performance_parameters:
-        size_mode: normal
-        n_clusters: 18
-        cluster_rating_MW: 40
-        eol_eff_percent_loss: 13  # eol defined as x% change in efficiency from bol
-        uptime_hours_until_eol: 80000.  # number of 'on' hours until electrolyzer reaches eol
-        include_degradation_penalty: true  # include degradation
-        turndown_ratio: 0.1  # turndown_ratio = minimum_cluster_power/cluster_rating_MW
-      financial_parameters:
-        capital_items:
-          depr_period: 7  # based on PEM Electrolysis H2A Production Case Study Documentation estimate of 7 years. also see https://www.irs.gov/publications/p946#en_US_2020_publink1000107507
-          replacement_cost_percent: 0.15  # percent of capex - H2A default case
+        commodity: electricity
+        commodity_rate_units: kW
+        demand_profile: 300000  # 1 GW
+        # demand_profile: 1000000  # 1 GW
+  # electricity_feedstock:
+  #   performance_model:
+  #     model: FeedstockPerformanceModel
+  #   cost_model:
+  #     model: FeedstockCostModel
+  #   model_inputs:
+  #     shared_parameters:
+  #       commodity: electricity
+  #       commodity_rate_units: kW
+  #     performance_parameters:
+  #       rated_capacity: 500000000.0  # kW
+  #     cost_parameters:
+  #       cost_year: 2022
+  #       price: 0.0  # USD/kWh - to be set through connections
+  #       annual_cost: 0.
+  #       start_up_cost: 0.
+  # # Grid interconnection used purely to purchase electricity for the electrolyzer
+  # # (Approach C). NOTE: the tech name MUST start with "grid_buy" for the financial
+  # # logic to treat its variable cost as a purchase (expense) rather than a coproduct.
+  # grid_buy:
+  #   performance_model:
+  #     model: GridPerformanceModel
+  #   cost_model:
+  #     model: GridCostModel
+  #   model_inputs:
+  #     shared_parameters:
+  #       interconnection_size: 5.e8  # kW - large so it never limits the electrolyzer's purchases
+  #     cost_parameters:
+  #       cost_year: 2022
+  #       # Purchase price is set through a connection to the wind + solar LCOE.
+  #       electricity_buy_price: 0.0  # USD/kWh - overwritten by the finance_subgroup_electricity.LCOE
+  #       buy_price_mode: per_timestep
+  #       # No interconnection capital/O&M charged here so only the energy cost matters.
+  #       interconnection_capex_per_kw: 0.0  # $/kW capital cost
+  #       interconnection_opex_per_kw: 0.0  # $/kW/year O&M cost
+  #       fixed_interconnection_cost: 0.0  # $ one-time fixed cost
