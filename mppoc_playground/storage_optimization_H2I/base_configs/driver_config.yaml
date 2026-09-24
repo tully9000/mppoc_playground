@@ -1,0 +1,67 @@
+name: driver_config
+description: This analysis runs a natural gas power plant with hybrid wind and solar to meet a fixed electrical load demand. The natural gas plant is used to meet any remaining load after the renewable generation is subtracted from the demand, and the natural gas plant and renewables are combined at the end to meet the demand. The financial performance of the natural gas plant and renewables are evaluated separately using ProFastLCO, and then combined for an overall LCOE and NPV.
+general:
+  folder_output: driver_output
+# recorder:
+  # flag: True
+  # file: "cases.sql"
+  # overwrite_recorder: True
+  # recorder_attachment: "driver"
+driver: 
+  optimization:
+    flag: true
+    tol: 0.01
+    max_iter: 100
+    solver: COBYLA
+    rhobeg: 100
+    debug_print: true
+    # autoscaler: bounds
+design_variables:
+  # wind:
+  #   wind_turbine_rating:
+  #     flag: true
+  #     lower: 0.0
+  #     upper: 5000.0
+  #     units: kW
+  solar:
+    system_capacity_DC:
+      flag: true
+      lower: 100000
+      upper: 3000000
+      units: kW
+  battery:
+    max_charge_rate:
+      flag: true
+      lower: 10000
+      upper: 2000000
+      units: kW
+    storage_capacity:
+      flag: true
+      lower: 0.0
+      upper: 20000000
+      units: kW*h
+  electrical_load_demand:
+    electricity_demand:
+      flag: false
+      lower: 0.0
+      upper: 1000000
+      units: kW
+constraints:
+  electrical_load_demand:
+    percent_load_missed:
+      flag: true
+      upper: 0.01
+      # lower: 20.
+      units: percent
+    curtailment_percent:
+      flag: false
+      lower: 20.0
+      units: percent
+  battery:
+    storage_duration:
+      flag: true
+      lower: 0.01
+      upper: 10
+      units: h
+objective:
+  name: finance_subgroup_electricity.LCOE
